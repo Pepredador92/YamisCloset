@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use libphonenumber\PhoneNumberUtil;
 use Webkul\Core\Repositories\SubscribersListRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
@@ -15,6 +16,7 @@ use Webkul\Shop\Http\Controllers\Controller;
 use Webkul\Shop\Http\Requests\Customer\RegistrationRequest;
 use Webkul\Shop\Mail\Customer\EmailVerificationNotification;
 use Webkul\Shop\Mail\Customer\RegistrationNotification;
+use Webkul\SocialLogin\Repositories\CustomerSocialAccountRepository;
 
 class RegistrationController extends Controller
 {
@@ -26,7 +28,8 @@ class RegistrationController extends Controller
     public function __construct(
         protected CustomerRepository $customerRepository,
         protected CustomerGroupRepository $customerGroupRepository,
-        protected SubscribersListRepository $subscriptionRepository
+        protected SubscribersListRepository $subscriptionRepository,
+        protected CustomerSocialAccountRepository $customerSocialAccountRepository
     ) {}
 
     /**
@@ -36,7 +39,38 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('shop::customers.sign-up');
+        $socialRegistration = session('social_registration');
+
+        if ($socialRegistration && ($socialRegistration['expires_at'] ?? 0) < now()->timestamp) {
+            session()->forget('social_registration');
+
+            $socialRegistration = null;
+        }
+
+        $phoneUtil = PhoneNumberUtil::getInstance();
+        $supportedRegions = array_fill_keys($phoneUtil->getSupportedRegions(), true);
+
+        $phoneCountries = core()->countries()
+            ->filter(fn ($country) => isset($supportedRegions[strtoupper($country->code)]))
+            ->map(function ($country) use ($phoneUtil) {
+                $code = strtoupper($country->code);
+                $name = \Locale::getDisplayRegion('und_'.$code, app()->getLocale());
+
+                return [
+                    'code' => $code,
+                    'name' => $name ?: $country->name,
+                    'calling_code' => $phoneUtil->getCountryCodeForRegion($code),
+                ];
+            })
+            ->filter(fn ($country) => $country['calling_code'] > 0)
+            ->values()
+            ->all();
+
+        usort($phoneCountries, fn ($left, $right) => $left['code'] === 'MX'
+            ? -1
+            : ($right['code'] === 'MX' ? 1 : strnatcasecmp($left['name'], $right['name'])));
+
+        return view('shop::customers.sign-up', compact('phoneCountries', 'socialRegistration'));
     }
 
     /**
@@ -48,16 +82,19 @@ class RegistrationController extends Controller
     {
         $customerGroup = core()->getConfigData('customer.settings.create_new_account_options.default_group');
 
+        $socialRegistration = session('social_registration');
         $subscription = $this->subscriptionRepository->findOneWhere(['email' => request()->input('email')]);
 
         $data = array_merge($registrationRequest->only([
             'first_name',
             'last_name',
             'email',
+            'phone',
+            'has_whatsapp',
             'password_confirmation',
             'is_subscribed',
         ]), [
-            'password' => bcrypt(request()->input('password')),
+            'password' => $socialRegistration ? null : bcrypt(request()->input('password')),
             'api_token' => Str::random(80),
             'is_verified' => ! core()->getConfigData('customer.settings.email.verification'),
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => $customerGroup])->id,
@@ -69,6 +106,16 @@ class RegistrationController extends Controller
         Event::dispatch('customer.registration.before');
 
         $customer = $this->customerRepository->create($data);
+
+        if ($socialRegistration) {
+            $this->customerSocialAccountRepository->create([
+                'customer_id' => $customer->id,
+                'provider_id' => $socialRegistration['provider_id'],
+                'provider_name' => $socialRegistration['provider'],
+            ]);
+
+            session()->forget('social_registration');
+        }
 
         if ($subscription) {
             $this->subscriptionRepository->update([
@@ -101,6 +148,12 @@ class RegistrationController extends Controller
             session()->flash('success', trans('shop::app.customers.signup-form.success-verify'));
         } else {
             session()->flash('success', trans('shop::app.customers.signup-form.success'));
+        }
+
+        if ($socialRegistration) {
+            auth()->guard('customer')->login($customer);
+
+            return redirect()->route('shop.customers.account.profile.index');
         }
 
         return redirect()->route('shop.customer.session.index');

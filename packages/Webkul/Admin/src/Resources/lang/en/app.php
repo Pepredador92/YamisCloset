@@ -249,6 +249,7 @@ return [
                     'status' => 'Status',
                     'success' => 'Success',
                     'view' => 'View',
+                    'whatsapp' => 'WhatsApp',
                 ],
             ],
 
@@ -2199,6 +2200,9 @@ return [
                 'note-created-success' => 'Note Created Successfully',
                 'order-create-confirmation' => 'Are you sure you want to create order for this customer?',
                 'phone' => 'Phone - :phone',
+                'whatsapp' => 'WhatsApp: :status',
+                'whatsapp-no' => 'No',
+                'whatsapp-yes' => 'Yes',
                 'set-as-default' => 'Set as Default',
                 'suspended' => 'Suspended',
                 'title' => 'Customer View',

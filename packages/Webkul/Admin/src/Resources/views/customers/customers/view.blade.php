@@ -210,6 +210,10 @@
                                     </p>
 
                                     <p class="text-gray-600 dark:text-gray-300">
+                                        @{{ "@lang('admin::app.customers.customers.view.whatsapp')".replace(':status', customer.has_whatsapp ? "@lang('admin::app.customers.customers.view.whatsapp-yes')" : "@lang('admin::app.customers.customers.view.whatsapp-no')") }}
+                                    </p>
+
+                                    <p class="text-gray-600 dark:text-gray-300">
                                         @{{ "@lang('admin::app.customers.customers.view.gender')".replace(':gender', customer.gender ?? 'N/A') }}
                                     </p>
 

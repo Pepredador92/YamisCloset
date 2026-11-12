@@ -52,6 +52,12 @@
                 @lang('shop::app.customers.signup-form.form-signup-text')
             </p>
 
+            @if ($socialRegistration)
+                <p class="mt-4 rounded-lg bg-blue-50 p-4 text-sm text-blue-800">
+                    @lang('shop::app.customers.signup-form.social-completion')
+                </p>
+            @endif
+
             <div class="mt-14 rounded-sm max-sm:mt-8">
                 <x-shop::form :action="route('shop.customers.register.store')">
                     {!! view_render_event('bagisto.shop.customers.signup_form_controls.before') !!}
@@ -67,7 +73,7 @@
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             name="first_name"
                             rules="required"
-                            :value="old('first_name')"
+                            :value="old('first_name', $socialRegistration['first_name'] ?? '')"
                             :label="trans('shop::app.customers.signup-form.first-name')"
                             :placeholder="trans('shop::app.customers.signup-form.first-name')"
                             :aria-label="trans('shop::app.customers.signup-form.first-name')"
@@ -90,7 +96,7 @@
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             name="last_name"
                             rules="required"
-                            :value="old('last_name')"
+                            :value="old('last_name', $socialRegistration['last_name'] ?? '')"
                             :label="trans('shop::app.customers.signup-form.last-name')"
                             :placeholder="trans('shop::app.customers.signup-form.last-name')"
                             :aria-label="trans('shop::app.customers.signup-form.last-name')"
@@ -101,6 +107,70 @@
                     </x-shop::form.control-group>
 
                     {!! view_render_event('bagisto.shop.customers.signup_form.last_name.after') !!}
+
+                    <!-- Phone Number -->
+                    <x-shop::form.control-group>
+                        <x-shop::form.control-group.label class="required">
+                            @lang('shop::app.customers.signup-form.phone-number')
+                        </x-shop::form.control-group.label>
+
+                        <div class="flex gap-2 max-sm:flex-col">
+                            <select
+                                name="phone_country"
+                                id="phone_country"
+                                class="w-full rounded-lg border border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-700 max-sm:py-3 md:max-w-64"
+                                aria-label="@lang('shop::app.customers.signup-form.phone-country')"
+                                required
+                            >
+                                @foreach ($phoneCountries as $country)
+                                    <option
+                                        value="{{ $country['code'] }}"
+                                        data-calling-code="{{ $country['calling_code'] }}"
+                                        @selected(old('phone_country', 'MX') === $country['code'])
+                                    >
+                                        {{ $country['name'] }} (+{{ $country['calling_code'] }})
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            <input
+                                type="tel"
+                                id="phone_number"
+                                name="phone_number"
+                                class="w-full rounded-lg border border-zinc-200 px-6 py-4 text-sm text-zinc-700 max-sm:py-3"
+                                value="{{ old('phone_number') }}"
+                                placeholder="55 1234 5678"
+                                autocomplete="tel-national"
+                                inputmode="tel"
+                                aria-label="@lang('shop::app.customers.signup-form.phone-number')"
+                                required
+                            />
+                        </div>
+
+                        <p class="mt-2 text-xs text-zinc-500">
+                            @lang('shop::app.customers.signup-form.phone-help')
+                        </p>
+
+                        <x-shop::form.control-group.error control-name="phone_country" />
+                        <x-shop::form.control-group.error control-name="phone_number" />
+                        <x-shop::form.control-group.error control-name="phone" />
+                    </x-shop::form.control-group>
+
+                    <div class="mb-6 flex items-center gap-2">
+                        <input
+                            type="checkbox"
+                            id="has_whatsapp"
+                            name="has_whatsapp"
+                            value="1"
+                            class="h-4 w-4 rounded border-zinc-300 text-navyBlue focus:ring-navyBlue"
+                            @checked(old('has_whatsapp'))
+                        />
+                        <label for="has_whatsapp" class="cursor-pointer text-sm text-zinc-600">
+                            @lang('shop::app.customers.signup-form.has-whatsapp')
+                        </label>
+                    </div>
+
+                    {!! view_render_event('bagisto.shop.customers.signup_form.phone.after') !!}
 
                     <!-- Email -->
                     <x-shop::form.control-group>
@@ -113,11 +183,12 @@
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             name="email"
                             rules="required|email"
-                            :value="old('email')"
+                            :value="old('email', $socialRegistration['email'] ?? '')"
                             :label="trans('shop::app.customers.signup-form.email')"
                             placeholder="email@example.com"
                             :aria-label="trans('shop::app.customers.signup-form.email')"
                             aria-required="true"
+                            @if ($socialRegistration && $socialRegistration['email']) readonly @endif
                         />
 
                         <x-shop::form.control-group.error control-name="email" />
@@ -125,6 +196,7 @@
 
                     {!! view_render_event('bagisto.shop.customers.signup_form.email.after') !!}
 
+                    @if (! $socialRegistration)
                     <!-- Password -->
                     <x-shop::form.control-group class="mb-6">
                         <x-shop::form.control-group.label class="required">
@@ -171,6 +243,7 @@
                     </x-shop::form.control-group>
 
                     {!! view_render_event('bagisto.shop.customers.signup_form.password_confirmation.after') !!}
+                    @endif
 
                     <!-- Captcha -->
                     @if (core()->getConfigData('customer.captcha.credentials.status'))
@@ -281,6 +354,39 @@
 
     @push('scripts')
         {!! \Webkul\Customer\Facades\Captcha::renderJS() !!}
+
+        <script>
+            const phoneCountrySelect = document.getElementById('phone_country');
+            const phoneNumberInput = document.getElementById('phone_number');
+
+            phoneNumberInput?.addEventListener('input', () => {
+                const pastedValue = phoneNumberInput.value.trim();
+                const isInternational = pastedValue.startsWith('+') || pastedValue.startsWith('00');
+                let digits = pastedValue.replace(/\D/g, '');
+
+                if (isInternational && phoneCountrySelect) {
+                    if (pastedValue.startsWith('00')) {
+                        digits = digits.slice(2);
+                    }
+
+                    const selectedOption = phoneCountrySelect.selectedOptions[0];
+                    const options = [...phoneCountrySelect.options].sort((left, right) => {
+                        return right.dataset.callingCode.length - left.dataset.callingCode.length;
+                    });
+                    const match = options.find((option) => {
+                        return digits.startsWith(option.dataset.callingCode)
+                            && option.dataset.callingCode === selectedOption?.dataset.callingCode;
+                    }) ?? options.find((option) => digits.startsWith(option.dataset.callingCode));
+
+                    if (match) {
+                        phoneCountrySelect.value = match.value;
+                        digits = digits.slice(match.dataset.callingCode.length);
+                    }
+                }
+
+                phoneNumberInput.value = digits;
+            });
+        </script>
     @endpush
 
     <!-- Terms & Conditions Modal -->

@@ -82,6 +82,25 @@ class CustomerSocialAccountRepository extends Repository
     }
 
     /**
+     * Find an existing customer linked to a provider identity in the active channel.
+     */
+    public function findCustomerByProvider(string $providerId, string $provider, int $channelId): ?Customer
+    {
+        $account = $this->findOneWhere([
+            'provider_name' => $provider,
+            'provider_id' => $providerId,
+        ]);
+
+        if (! $account) {
+            return null;
+        }
+
+        return $this->belongsToChannel($account->customer, $channelId)
+            ? $account->customer
+            : null;
+    }
+
+    /**
      * Returns first and last name from name.
      *
      * @param  string  $name
@@ -116,8 +135,12 @@ class CustomerSocialAccountRepository extends Repository
     /**
      * Whether a customer of the given channel, or of none, already holds the email.
      */
-    protected function emailIsTaken(string $email, int $channelId): bool
+    public function emailIsTaken(?string $email, int $channelId): bool
     {
+        if (! $email) {
+            return false;
+        }
+
         return $this->customerRepository
             ->where('email', $email)
             ->where(fn ($query) => $query->where('channel_id', $channelId)->orWhereNull('channel_id'))

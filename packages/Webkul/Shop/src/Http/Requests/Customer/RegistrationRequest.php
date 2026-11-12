@@ -3,7 +3,10 @@
 namespace Webkul\Shop\Http\Requests\Customer;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use libphonenumber\PhoneNumberUtil;
 use Webkul\Customer\Facades\Captcha;
+use Webkul\Shop\Support\PhoneNumberNormalizer;
 
 class RegistrationRequest extends FormRequest
 {
@@ -17,6 +20,33 @@ class RegistrationRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        $socialRegistration = session('social_registration');
+
+        if ($socialRegistration && ($socialRegistration['expires_at'] ?? 0) < now()->timestamp) {
+            session()->forget('social_registration');
+
+            $socialRegistration = null;
+        }
+
+        if ($socialRegistration) {
+            $this->merge([
+                'first_name' => $this->input('first_name') ?: $socialRegistration['first_name'],
+                'last_name' => $this->input('last_name') ?: $socialRegistration['last_name'],
+                'email' => $socialRegistration['email'] ?: $this->input('email'),
+            ]);
+        }
+
+        $this->merge([
+            'phone' => PhoneNumberNormalizer::normalize(
+                $this->input('phone_number'),
+                $this->input('phone_country')
+            ),
+            'has_whatsapp' => $this->boolean('has_whatsapp'),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,11 +54,26 @@ class RegistrationRequest extends FormRequest
      */
     public function rules()
     {
+        $socialRegistration = session('social_registration');
+
         $rules = [
             'first_name' => 'string|required|max:255',
             'last_name' => 'string|required|max:255',
             'email' => 'email|required|max:255|unique:customers,email,NULL,id,channel_id,'.core()->getCurrentChannel()->id,
-            'password' => 'confirmed|min:6|required',
+            'phone_country' => ['required', 'string', Rule::in(PhoneNumberUtil::getInstance()->getSupportedRegions())],
+            'phone_number' => [
+                'required',
+                'string',
+                'max:32',
+                function ($attribute, $value, $fail) {
+                    if (! $this->input('phone')) {
+                        $fail(trans('shop::app.customers.signup-form.invalid-phone'));
+                    }
+                },
+            ],
+            'phone' => ['nullable', 'string', 'regex:/^\\+[1-9]\\d{7,14}$/', 'unique:customers,phone'],
+            'has_whatsapp' => ['sometimes', 'boolean'],
+            'password' => $socialRegistration ? 'nullable|confirmed|min:6' : 'confirmed|min:6|required',
         ];
 
         return Captcha::getValidations($rules);
@@ -41,6 +86,17 @@ class RegistrationRequest extends FormRequest
      */
     public function messages()
     {
-        return Captcha::getValidationMessages();
+        return array_merge(Captcha::getValidationMessages(), [
+            'phone.unique' => trans('shop::app.customers.signup-form.phone-taken'),
+        ]);
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'phone' => trans('shop::app.customers.signup-form.phone-number'),
+            'phone_number' => trans('shop::app.customers.signup-form.phone-number'),
+            'phone_country' => trans('shop::app.customers.signup-form.phone-country'),
+        ];
     }
 }

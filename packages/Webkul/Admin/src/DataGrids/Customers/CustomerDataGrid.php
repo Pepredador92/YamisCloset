@@ -45,6 +45,7 @@ class CustomerDataGrid extends DataGrid
                 'customers.id as customer_id',
                 'customers.email',
                 'customers.phone',
+                'customers.has_whatsapp',
                 'customers.gender',
                 'customers.status',
                 'customers.is_suspended',
@@ -58,6 +59,7 @@ class CustomerDataGrid extends DataGrid
                 'customers.id',
                 'customers.email',
                 'customers.phone',
+                'customers.has_whatsapp',
                 'customers.gender',
                 'customers.status',
                 'customers.is_suspended',
@@ -133,7 +135,14 @@ class CustomerDataGrid extends DataGrid
         $this->addColumn([
             'index' => 'phone',
             'label' => trans('admin::app.customers.customers.index.datagrid.phone'),
-            'type' => 'integer',
+            'type' => 'string',
+            'filterable' => true,
+        ]);
+
+        $this->addColumn([
+            'index' => 'has_whatsapp',
+            'label' => trans('admin::app.customers.customers.index.datagrid.whatsapp'),
+            'type' => 'boolean',
             'filterable' => true,
         ]);
 

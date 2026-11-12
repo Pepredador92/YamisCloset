@@ -18,11 +18,8 @@ class LoginController extends Controller
      * The providers a customer may sign in with, each keyed to the setting that enables it.
      */
     public const PROVIDERS = [
-        'facebook' => 'enable_facebook',
-        'twitter' => 'enable_twitter',
         'google' => 'enable_google',
-        'linkedin-openid' => 'enable_linkedin',
-        'github' => 'enable_github',
+        'facebook' => 'enable_facebook',
     ];
 
     /**
@@ -67,12 +64,33 @@ class LoginController extends Controller
             return redirect()->route('shop.customer.session.index');
         }
 
-        $customer = $this->customerSocialAccountRepository->findOrCreateCustomer($user, $provider);
+        $channelId = core()->getCurrentChannel()->id;
+
+        $customer = $this->customerSocialAccountRepository->findCustomerByProvider(
+            $user->getId(),
+            $provider,
+            $channelId
+        );
 
         if (! $customer) {
-            session()->flash('error', trans('shop::app.customers.login-form.social-account-exists'));
+            if ($this->customerSocialAccountRepository->emailIsTaken($user->getEmail(), $channelId)) {
+                session()->flash('error', trans('shop::app.customers.login-form.social-account-exists'));
 
-            return redirect()->route('shop.customer.session.index');
+                return redirect()->route('shop.customer.session.index');
+            }
+
+            $names = $this->customerSocialAccountRepository->getFirstLastName($user->getName() ?? '');
+
+            session(['social_registration' => [
+                'provider' => $provider,
+                'provider_id' => (string) $user->getId(),
+                'email' => $user->getEmail(),
+                'first_name' => $names['first_name'],
+                'last_name' => $names['last_name'],
+                'expires_at' => now()->addMinutes(20)->timestamp,
+            ]]);
+
+            return redirect()->route('shop.customers.register.index');
         }
 
         if (! $customer->status) {

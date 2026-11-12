@@ -40,6 +40,7 @@ class Customer extends Authenticatable implements CustomerContract
      */
     protected $casts = [
         'subscribed_to_news_letter' => 'boolean',
+        'has_whatsapp' => 'boolean',
         'status' => 'boolean',
         'is_verified' => 'boolean',
         'is_suspended' => 'boolean',
@@ -74,6 +75,7 @@ class Customer extends Authenticatable implements CustomerContract
         'date_of_birth',
         'email',
         'phone',
+        'has_whatsapp',
         'password',
         'api_token',
         'token',
