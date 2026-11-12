@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => 'מנהל',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'אשר סיסמה',
                 'email' => 'אימייל',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'שם היישום',
                 'argentine-peso' => 'פסו ארגנטינאי (ARS)',
                 'australian-dollar' => 'דולר אוסטרלי (AUD)',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'טאקה בנגלדשי (BDT)',
                 'bahraini-dinar' => 'דינר בחרייני (BHD)',
                 'brazilian-real' => 'ריאל ברזילאי (BRL)',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'התקנת Bagisto',
+                'bagisto' => 'התקנת Yamis Closet',
                 'bagisto-info' => 'יצירת טבלאות מסד הנתונים, זה עשוי לקחת מספר רגעים',
                 'title' => 'התקנה',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'פנל מנהל המערכת',
-                'bagisto-forums' => 'פורום Bagisto',
+                'bagisto-forums' => 'פורום Yamis Closet',
                 'customer-panel' => 'פנל לקוח',
-                'explore-bagisto-extensions' => 'גלה הרחבות Bagisto',
+                'explore-bagisto-extensions' => 'גלה הרחבות Yamis Closet',
                 'title' => 'התקנה הושלמה',
-                'title-info' => 'Bagisto הותקן בהצלחה במערכת שלך.',
+                'title-info' => 'Yamis Closet הותקן בהצלחה במערכת שלך.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'צור טבלאות מסד נתונים',
                 'drop-existing-tables' => 'מחק כל טבלאות קיימות',
                 'install' => 'התקנה',
-                'install-info' => 'Bagisto להתקנה',
+                'install-info' => 'Yamis Closet להתקנה',
                 'install-info-button' => 'לחץ על הכפתור למטה כדי',
                 'populate-database-tables' => 'מילוי הטבלאות במסד הנתונים',
                 'start-installation' => 'התחל התקנה',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'אזור',
                 'main' => 'הַתְחָלָה',
                 'select-locale' => 'בחר אזור',
-                'title' => 'התקנת Bagisto שלך',
-                'welcome-title' => 'ברוך הבא ל-Bagisto',
+                'title' => 'התקנת Yamis Closet שלך',
+                'welcome-title' => 'ברוך הבא ל-Yamis Closet',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'ערבית',
             'back' => 'חזרה',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'פרויקט קהילתי על ידי',
-            'bagisto-logo' => 'לוגו Bagisto',
+            'bagisto-logo' => 'לוגו Yamis Closet',
             'bengali' => 'בנגלי',
             'catalan' => 'קטלאני',
             'chinese' => 'סיני',
@@ -1006,9 +1006,9 @@ return [
             'hebrew' => 'עברית',
             'hindi' => 'הינדי',
             'indonesian' => 'אינדונזי',
-            'installation-description' => 'התקנת Bagisto כוללת בדרך כלל מספר שלבים. הנה מתווה כללי של תהליך ההתקנה עבור Bagisto',
+            'installation-description' => 'התקנת Yamis Closet כוללת בדרך כלל מספר שלבים. הנה מתווה כללי של תהליך ההתקנה עבור Yamis Closet',
             'installation-info' => 'אנו שמחים לראותך כאן!',
-            'installation-title' => 'ברוך הבא להתקנת Bagisto',
+            'installation-title' => 'ברוך הבא להתקנת Yamis Closet',
             'italian' => 'איטלקי',
             'japanese' => 'יפני',
             'persian' => 'פרסי',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'סינהלה',
             'spanish' => 'ספרדית',
             'swahili' => 'סווהילית',
-            'title' => 'מתקין Bagisto',
+            'title' => 'מתקין Yamis Closet',
             'turkish' => 'טורקי',
             'ukrainian' => 'אוקראיני',
             'webkul' => 'Webkul',

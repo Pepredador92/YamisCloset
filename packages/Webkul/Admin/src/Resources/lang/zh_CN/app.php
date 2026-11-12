@@ -6,7 +6,7 @@ return [
             'email' => '电子邮件地址',
             'forget-password-link' => '忘记密码？',
             'password' => '密码',
-            'powered-by-description' => '由 :bagisto 提供支持，一个由 :webkul 社区支持的项目。',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => '登录',
             'title' => '登录',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => '注册电子邮件',
                 'email-not-exist' => '电子邮件不存在',
                 'page-title' => '忘记密码',
-                'powered-by-description' => '由 :bagisto 提供支持，一个由 :webkul 社区支持的项目。',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => '重置密码链接已发送',
                 'reset-link-failed' => '无法发送密码重置链接，请稍后重试。',
                 'sign-in-link' => '返回登录？',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => '确认密码',
             'email' => '注册电子邮件',
             'password' => '密码',
-            'powered-by-description' => '由 :bagisto 提供支持，一个由 :webkul 社区支持的项目。',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => '重置密码',
             'title' => '重置密码',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => '常规',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => '已缓存',
                         'database' => '数据库',
                         'drivers' => '驱动',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => '由 <a href="https://bagisto.com/" target="_blank">Bagisto</a> 提供支持，一个由 <a href="https://webkul.com/" target="_blank">Webkul</a> 社区支持的项目',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

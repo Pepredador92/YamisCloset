@@ -6,7 +6,7 @@ return [
             'email' => 'E-posta Adresi',
             'forget-password-link' => 'Şifremi Unuttum ?',
             'password' => 'Şifre',
-            'powered-by-description' => ':webkul tarafından geliştirilen açık kaynaklı bir proje olan :bagisto tarafından desteklenmektedir.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Giriş Yap',
             'title' => 'Giriş Yap',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Kayıtlı E-posta',
                 'email-not-exist' => 'E-posta Bulunamadı',
                 'page-title' => 'Şifremi Unuttum',
-                'powered-by-description' => ':webkul tarafından geliştirilen açık kaynaklı bir proje olan :bagisto tarafından desteklenmektedir.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Şifre Sıfırlama Bağlantısı Gönderildi',
                 'reset-link-failed' => 'Parola sıfırlama bağlantısı gönderilemedi. Lütfen daha sonra tekrar deneyin.',
                 'sign-in-link' => 'Giriş Yap’a Geri Dön ?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Şifreyi Onayla',
             'email' => 'Kayıtlı E-posta',
             'password' => 'Şifre',
-            'powered-by-description' => ':webkul tarafından geliştirilen açık kaynaklı bir proje olan :bagisto tarafından desteklenmektedir.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Şifre Sıfırla',
             'title' => 'Şifre Sıfırlama',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Genel',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Önbelleğe Alındı',
                         'database' => 'Veritabanı',
                         'drivers' => 'Sürücüler',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Tarafından desteklenmektedir <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Bir Topluluk Projesi <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

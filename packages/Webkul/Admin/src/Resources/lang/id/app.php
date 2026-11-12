@@ -6,7 +6,7 @@ return [
             'email' => 'Alamat Email',
             'forget-password-link' => 'Lupa Kata Sandi?',
             'password' => 'Kata Sandi',
-            'powered-by-description' => 'Dibuat oleh :bagisto, proyek open-source dari :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Masuk',
             'title' => 'Masuk',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Email Terdaftar',
                 'email-not-exist' => 'Email Tidak Ditemukan',
                 'page-title' => 'Lupa Kata Sandi',
-                'powered-by-description' => 'Dibuat oleh :bagisto, proyek open-source dari :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Tautan Reset Kata Sandi telah dikirim',
                 'reset-link-failed' => 'Tidak dapat mengirim tautan atur ulang kata sandi. Silakan coba lagi nanti.',
                 'sign-in-link' => 'Kembali ke Halaman Masuk?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Konfirmasi Kata Sandi',
             'email' => 'Email Terdaftar',
             'password' => 'Kata Sandi',
-            'powered-by-description' => 'Dibuat oleh :bagisto, proyek open-source dari :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Atur Ulang Kata Sandi',
             'title' => 'Atur Ulang Kata Sandi',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Umum',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Tersimpan di Cache',
                         'database' => 'Basis Data',
                         'drivers' => 'Driver',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Didukung oleh <a href="https://bagisto.com/" target="_blank">Bagisto</a>, proyek komunitas yang dikembangkan oleh <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

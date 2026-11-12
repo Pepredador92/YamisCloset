@@ -29,7 +29,7 @@
             <a
                 href="{{ route('shop.home.index') }}"
                 class="mx-auto mb-5"
-                aria-label="@lang('shop::app.customers.signup-form.bagisto')"
+                aria-label="{{ config('app.name') }}"
             >
                 <img
                     src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"

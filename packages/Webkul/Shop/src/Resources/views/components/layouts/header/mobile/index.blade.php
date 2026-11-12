@@ -24,7 +24,7 @@
             <a
                 href="{{ route('shop.home.index') }}"
                 class="flex max-h-7.5 items-center"
-                aria-label="@lang('shop::app.components.layouts.header.mobile.bagisto')"
+                aria-label="{{ config('app.name') }}"
             >
                 <img
                     class="block"

@@ -5,7 +5,7 @@ return [
         'forgot-password' => [
             'already-sent' => 'Barua ya kubadilisha nenosiri imetumwa tayari.',
             'back' => 'Rudi kuingia?',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'email' => 'Barua pepe',
             'email-not-exist' => 'Hatupati mtumiaji mwenye barua pepe hiyo.',
             'footer' => '© Hati miliki 2010 - :current_year, Webkul Software (Imesajiliwa India). Haki zote zimehifadhiwa.',
@@ -20,7 +20,7 @@ return [
 
         'reset-password' => [
             'back-link-title' => 'Rudi Kuingia',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'confirm-password' => 'Thibitisha Nenosiri',
             'email' => 'Barua Pepe Iliyosajiliwa',
             'footer' => '© Hati miliki 2010 - :current_year, Webkul Software (Imesajiliwa India). Haki zote zimehifadhiwa.',
@@ -30,7 +30,7 @@ return [
         ],
 
         'login-form' => [
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Ingia',
             'create-your-account' => 'Fungua akaunti yako',
             'email' => 'Barua pepe',
@@ -50,7 +50,7 @@ return [
 
         'signup-form' => [
             'account-exists' => 'Una akaunti tayari?',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Jiandikishe',
             'click-here' => 'Bofya Hapa',
             'confirm-pass' => 'Thibitisha Nenosiri',
@@ -584,7 +584,7 @@ return [
                     'bottom' => [
                         'all' => 'Zote',
                         'back-button' => 'Rudi kwenye Menyu Kuu',
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'categories' => 'Makundi',
                         'compare' => 'Linganisha',
                         'dropdown-text' => 'Dhibiti Kikapu, Oda na Orodha ya Matamanio',
@@ -605,7 +605,7 @@ return [
                 'mobile' => [
                     'account' => 'Akaunti',
                     'back-button' => 'Rudi kwenye Menyu Kuu',
-                    'bagisto' => 'Bagisto',
+                    'bagisto' => 'Yamis Closet',
                     'compare' => 'Linganisha',
                     'currencies' => 'Sarafu',
                     'dropdown-text' => 'Dhibiti Kikapu, Oda na Orodha ya Matamanio',
@@ -1114,7 +1114,7 @@ return [
             'suspended-account-message' => 'Akaunti yako imesimamishwa.',
 
             'index' => [
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'cart' => 'Kikapu',
                 'continue-shopping' => 'Endelea Kununua',
                 'empty-product' => 'Huna bidhaa kikapuni.',

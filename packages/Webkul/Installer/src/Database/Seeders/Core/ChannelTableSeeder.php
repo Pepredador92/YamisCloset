@@ -51,9 +51,9 @@ class ChannelTableSeeder extends Seeder
                 [
                     'channel_id' => 1,
                     'locale' => $locale,
-                    'name' => trans('installer::app.seeders.core.channels.name', [], $locale),
+                    'name' => config('app.name', 'Yamis Closet'),
                     'home_seo' => json_encode([
-                        'meta_title' => trans('installer::app.seeders.core.channels.meta-title', [], $locale),
+                        'meta_title' => config('app.name', 'Yamis Closet'),
                         'meta_description' => trans('installer::app.seeders.core.channels.meta-description', [], $locale),
                         'meta_keywords' => trans('installer::app.seeders.core.channels.meta-keywords', [], $locale),
                     ]),

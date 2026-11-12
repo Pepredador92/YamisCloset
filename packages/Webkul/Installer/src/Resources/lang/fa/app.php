@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => 'مدیر',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'تأیید رمز عبور',
                 'email' => 'ایمیل',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'نام برنامه',
                 'argentine-peso' => 'پزوی آرژانتین (ARS)',
                 'australian-dollar' => 'دلار استرالیا (AUD)',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'تاکای بنگلادش (BDT)',
                 'bahraini-dinar' => 'دینار بحرین (BHD)',
                 'brazilian-real' => 'رئال برزیل (BRL)',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'نصب Bagisto',
+                'bagisto' => 'نصب Yamis Closet',
                 'bagisto-info' => 'ایجاد جداول پایگاه داده، این ممکن است چند لحظه طول بکشد',
                 'title' => 'نصب',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'پنل مدیریت',
-                'bagisto-forums' => 'انجمن Bagisto',
+                'bagisto-forums' => 'انجمن Yamis Closet',
                 'customer-panel' => 'پنل مشتریان',
-                'explore-bagisto-extensions' => 'کاوش در افزونه‌های Bagisto',
+                'explore-bagisto-extensions' => 'کاوش در افزونه‌های Yamis Closet',
                 'title' => 'نصب با موفقیت انجام شد',
-                'title-info' => 'Bagisto با موفقیت بر روی سیستم شما نصب شده است.',
+                'title-info' => 'Yamis Closet با موفقیت بر روی سیستم شما نصب شده است.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'ایجاد جداول پایگاه د',
                 'drop-existing-tables' => 'حذف جداول موجود',
                 'install' => 'نصب',
-                'install-info' => 'Bagisto برای نصب',
+                'install-info' => 'Yamis Closet برای نصب',
                 'install-info-button' => 'برای شروع کلیک کنید',
                 'populate-database-tables' => 'پر کردن جدول‌های پایگاه‌داده',
                 'start-installation' => 'شروع نصب',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'محلی',
                 'main' => 'شروع',
                 'select-locale' => 'انتخاب محلی',
-                'title' => 'نصب Bagisto شما',
-                'welcome-title' => 'خوش آمدید به Bagisto',
+                'title' => 'نصب Yamis Closet شما',
+                'welcome-title' => 'خوش آمدید به Yamis Closet',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'عربی',
             'back' => 'بازگشت',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'یک پروژه جامعه‌ای توسط',
-            'bagisto-logo' => 'لوگوی Bagisto',
+            'bagisto-logo' => 'لوگوی Yamis Closet',
             'bengali' => 'بنگالی',
             'catalan' => 'کاتالان',
             'chinese' => 'چینی',
@@ -1006,9 +1006,9 @@ return [
             'hebrew' => 'عبری',
             'hindi' => 'هندی',
             'indonesian' => 'اندونزیایی',
-            'installation-description' => 'نصب Bagisto معمولاً شامل چندین مرحله است. در اینجا یک نمای کلی از فرآیند نصب برای Bagisto آورده شده است',
+            'installation-description' => 'نصب Yamis Closet معمولاً شامل چندین مرحله است. در اینجا یک نمای کلی از فرآیند نصب برای Yamis Closet آورده شده است',
             'installation-info' => 'خوشحالیم که شما را اینجا می‌بینیم!',
-            'installation-title' => 'به نصب Bagisto خوش آمدید',
+            'installation-title' => 'به نصب Yamis Closet خوش آمدید',
             'italian' => 'ایتالیایی',
             'japanese' => 'ژاپنی',
             'persian' => 'فارسی',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'سینهالا',
             'spanish' => 'اسپانیایی',
             'swahili' => 'سواحیلی',
-            'title' => 'نصب‌کننده Bagisto',
+            'title' => 'نصب‌کننده Yamis Closet',
             'turkish' => 'ترکی',
             'ukrainian' => 'اوکراینی',
             'webkul' => 'Webkul',

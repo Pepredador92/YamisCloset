@@ -6,7 +6,7 @@ return [
             'email' => 'E-mailadres',
             'forget-password-link' => 'Wachtwoord Vergeten?',
             'password' => 'Wachtwoord',
-            'powered-by-description' => 'Aangedreven door :bagisto, een open-source project van :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Aanmelden',
             'title' => 'Aanmelden',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Geregistreerd E-mailadres',
                 'email-not-exist' => 'E-mailadres Bestaat Niet',
                 'page-title' => 'Wachtwoord Vergeten',
-                'powered-by-description' => 'Aangedreven door :bagisto, een open-source project van :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Reset Wachtwoordlink Verzonden',
                 'reset-link-failed' => 'De link om het wachtwoord opnieuw in te stellen kon niet worden verzonden. Probeer het later opnieuw.',
                 'sign-in-link' => 'Terug naar Aanmelden?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Bevestig Wachtwoord',
             'email' => 'Geregistreerd E-mailadres',
             'password' => 'Wachtwoord',
-            'powered-by-description' => 'Aangedreven door :bagisto, een open-source project van :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Wachtwoord Herstellen',
             'title' => 'Wachtwoord Herstellen',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Algemeen',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'In cache',
                         'database' => 'Database',
                         'drivers' => 'Stuurprogramma’s',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Aangedreven door <a href="https://bagisto.com/" target="_blank">Bagisto</a>, een Community Project van <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

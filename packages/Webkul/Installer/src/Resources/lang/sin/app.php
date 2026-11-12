@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'Bagisto ස්තුරාකුල',
+                'bagisto' => 'Yamis Closet ස්තුරාකුල',
                 'bagisto-info' => 'දත්ත වගකාගකක් සාදනු ඇති වී, මෙමගේ කුම වේදයන්ද කතාමතා වේදිය',
                 'title' => 'ස්තුරාකුල',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'පරිපාල පැනල්',
-                'bagisto-forums' => 'Bagisto සංස්ථාගත',
+                'bagisto-forums' => 'Yamis Closet සංස්ථාගත',
                 'customer-panel' => 'ප්‍රභාණ්ඩ පැනල්',
-                'explore-bagisto-extensions' => 'Bagisto ප්‍රභාණ ව්‍යාකරණ',
+                'explore-bagisto-extensions' => 'Yamis Closet ප්‍රභාණ ව්‍යාකරණ',
                 'title' => 'ස්තුරාකුල සම්තුදාව',
-                'title-info' => 'Bagisto ඔබගේ පද්ධතියට සහාභයාගීත.',
+                'title-info' => 'Yamis Closet ඔබගේ පද්ධතියට සහාභයාගීත.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'දත්ත ගබඩා වගු නිර්මාණය කරන්',
                 'drop-existing-tables' => 'පවතින වගු මකන්න',
                 'install' => 'ස්තුරාකුල',
-                'install-info' => 'උත්සහාභාවයක් සඳහා Bagisto',
+                'install-info' => 'උත්සහාභාවයක් සඳහා Yamis Closet',
                 'install-info-button' => 'පහත ඇතුලත් කිරීමට ක්රම කරන්න',
                 'populate-database-tables' => 'දත්ත වගකාගකක් සිටුවනවා',
                 'start-installation' => 'ස්තුරාකුල ආරම්භය',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'දේශීය',
                 'main' => 'ආරම්භක',
                 'select-locale' => 'Locale තෝරන්න',
-                'title' => 'ඔබේ Bagisto ස්ථාපනය',
-                'welcome-title' => 'Bagisto වෙත සාදරයෙන් පිළිගනිමු.',
+                'title' => 'ඔබේ Yamis Closet ස්ථාපනය',
+                'welcome-title' => 'Yamis Closet වෙත සාදරයෙන් පිළිගනිමු.',
             ],
 
             'server-requirements' => [
@@ -994,7 +994,7 @@ return [
             'back' => 'ආපනය',
             'bagisto' => 'බැගිස්ටෝ',
             'bagisto-info' => 'සමුදුසමින් ව්‍යාක්රණය',
-            'bagisto-logo' => 'Bagisto ලෝගො',
+            'bagisto-logo' => 'Yamis Closet ලෝගො',
             'bengali' => 'බෙංගාලි',
             'catalan' => 'කැටලන්',
             'chinese' => 'චීන',
@@ -1006,7 +1006,7 @@ return [
             'hebrew' => 'හෙබ්රෙව්',
             'hindi' => 'හින්දි',
             'indonesian' => 'ඉන්දුනීසියානු',
-            'installation-description' => 'Bagisto ස්ථාපනය සාමාන්‍යයෙන් කිහිපයක් පියවරට යටත් වේ. මෙන්න Bagisto සඳහා ස්ථාපන ක්රියාවලියේ සාමාන්ය දෘෂ්ටියක්',
+            'installation-description' => 'Yamis Closet ස්ථාපනය සාමාන්‍යයෙන් කිහිපයක් පියවරට යටත් වේ. මෙන්න Yamis Closet සඳහා ස්ථාපන ක්රියාවලියේ සාමාන්ය දෘෂ්ටියක්',
             'installation-info' => 'අපට ඔබ මෙතා බලන්නේ සුමුදුසමින්!',
             'installation-title' => 'ස්තුරාකුල සහාභ',
             'italian' => 'ඉතාලි',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'සිංහල',
             'spanish' => 'ස්පාඤ්ඤ',
             'swahili' => 'ස්වාහිලි',
-            'title' => 'Bagisto ස්තුරාකුල',
+            'title' => 'Yamis Closet ස්තුරාකුල',
             'turkish' => 'තුර්කි',
             'ukrainian' => 'යුක්රේනියානු',
             'webkul' => 'වෙබ්කුල්',

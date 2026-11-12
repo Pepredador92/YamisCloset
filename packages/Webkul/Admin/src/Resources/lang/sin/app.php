@@ -6,7 +6,7 @@ return [
             'email' => 'ඊමේල් ලිපිනය',
             'forget-password-link' => 'මුර මුදල් අමතකවෙනිද?',
             'password' => 'මුර පදය',
-            'powered-by-description' => ':webkul විසින් නිර්මාණය කරන ලද විවෘත මූලාශ්‍ර ව්‍යාපෘතියක් වන :bagisto විසින් බලගැන්වී ඇත.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'පිවිසීම',
             'title' => 'පිවිසීම',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'ලිපිනය',
                 'email-not-exist' => 'ලිපිනය නොපවතී',
                 'page-title' => 'මුර මුදල් අමතකවෙනිද?',
-                'powered-by-description' => ':webkul විසින් නිර්මාණය කරන ලද විවෘත මූලාශ්‍ර ව්‍යාපෘතියක් වන :bagisto විසින් බලගැන්වී ඇත.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'මුර මුදල් අමතකවූ ලින්ක් එක යවන ලදි',
                 'reset-link-failed' => 'මුරපදය යළි සකසන සබැඳිය යැවීමට නොහැකි විය. කරුණාකර පසුව නැවත උත්සාහ කරන්න.',
                 'sign-in-link' => 'පිවිසීමට ආරම්භකරන්න?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'මුර පදය තහවුරු කරන්න',
             'email' => 'ලිපිනය',
             'password' => 'මුර පදය',
-            'powered-by-description' => ':webkul විසින් නිර්මාණය කරන ලද විවෘත මූලාශ්‍ර ව්‍යාපෘතියක් වන :bagisto විසින් බලගැන්වී ඇත.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'මුර පදය නැවත සකසන්න',
             'title' => 'මුර පදය නැවත සකසන්න',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'සාමාන්‍ය',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'හැඹිලිගත',
                         'database' => 'දත්ත සමුදාය',
                         'drivers' => 'ධාවක',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'බගිස්ටෝ ආදේශයේ බරපත වෙබ්කුල්, සංචාලන ව්යාපෘති මාධ්යකුම අතියේ <a href="https://bagisto.com/" target="_blank">Bagisto</a> වෙතට බලන්න',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

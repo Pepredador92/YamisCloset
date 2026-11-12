@@ -6,7 +6,7 @@ return [
             'email' => 'ईमेल पता',
             'forget-password-link' => 'पासवर्ड भूल गए?',
             'password' => 'पासवर्ड',
-            'powered-by-description' => ':bagisto द्वारा संचालित, :webkul द्वारा एक ओपन-सोर्स परियोजना।',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'साइन इन करें',
             'title' => 'साइन इन करें',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'रजिस्टर्ड ईमेल',
                 'email-not-exist' => 'ईमेल मौजूद नहीं है',
                 'page-title' => 'पासवर्ड भूल गए',
-                'powered-by-description' => ':bagisto द्वारा संचालित, :webkul द्वारा एक ओपन-सोर्स परियोजना।',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'पासवर्ड लिंक भेज दिया गया',
                 'reset-link-failed' => 'पासवर्ड रीसेट लिंक भेजा नहीं जा सका। कृपया बाद में पुनः प्रयास करें।',
                 'sign-in-link' => 'साइन इन पर वापस जाएं?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'पासवर्ड की पुष्टि करें',
             'email' => 'रजिस्टर्ड ईमेल',
             'password' => 'पासवर्ड',
-            'powered-by-description' => ':bagisto द्वारा संचालित, :webkul द्वारा एक ओपन-सोर्स परियोजना।',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'पासवर्ड रीसेट करें',
             'title' => 'पासवर्ड रीसेट करें',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'सामान्य',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'कैश किया गया',
                         'database' => 'डेटाबेस',
                         'drivers' => 'ड्राइवर',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'प्रद्वार <a href="https://bagisto.com/" target="_blank">Bagisto</a>, एक समुदाय परियोजना <a href="https://webkul.com/" target="_blank">Webkul</a> द्वारा',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

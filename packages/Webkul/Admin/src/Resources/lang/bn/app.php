@@ -6,7 +6,7 @@ return [
             'email' => 'ইমেইল ঠিকানা',
             'forget-password-link' => 'পাসওয়ার্ড ভুলে গিয়েছেন?',
             'password' => 'পাসওয়ার্ড',
-            'powered-by-description' => ':bagisto দ্বারা চালিত, :webkul দ্বারা একটি ওপেন-সোর্স প্রকল্প।',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'সাইন ইন করুন',
             'title' => 'সাইন ইন',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'রেজিস্টার্ড ইমেইল',
                 'email-not-exist' => 'ইমেইল প্রাপ্ত হয়নি',
                 'page-title' => 'পাসওয়ার্ড ভুলে গেছেন',
-                'powered-by-description' => ':bagisto দ্বারা চালিত, :webkul দ্বারা একটি ওপেন-সোর্স প্রকল্প।',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'পাসওয়ার্ড রিসেট লিঙ্ক পাঠানো হয়েছে',
                 'reset-link-failed' => 'পাসওয়ার্ড রিসেট লিঙ্ক পাঠানো যায়নি। অনুগ্রহ করে পরে আবার চেষ্টা করুন।',
                 'sign-in-link' => 'সাইন ইনে ফিরে যান?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'পাসওয়ার্ড নিশ্চিত করুন',
             'email' => 'রেজিস্টার্ড ইমেইল',
             'password' => 'পাসওয়ার্ড',
-            'powered-by-description' => ':bagisto দ্বারা চালিত, :webkul দ্বারা একটি ওপেন-সোর্স প্রকল্প।',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'পাসওয়ার্ড রিসেট করুন',
             'title' => 'পাসওয়ার্ড রিসেট',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'সাধারণ',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'ক্যাশ করা',
                         'database' => 'ডাটাবেস',
                         'drivers' => 'ড্রাইভার',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'প্রযুক্তিদ্বারা সমর্থিত <a href="https://bagisto.com/" target="_blank">Bagisto</a>, একটি সম্প্রদায় প্রকল্প দ্বারা <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

@@ -6,7 +6,7 @@ return [
             'email' => 'Adresse e-mail',
             'forget-password-link' => 'Mot de passe oublié ?',
             'password' => 'Mot de passe',
-            'powered-by-description' => 'Propulsé par :bagisto, un projet open-source par :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Se connecter',
             'title' => 'Se connecter',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Adresse e-mail enregistrée',
                 'email-not-exist' => 'L\'adresse e-mail n\'existe pas',
                 'page-title' => 'Mot de passe oublié',
-                'powered-by-description' => 'Propulsé par :bagisto, un projet open-source par :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Lien de réinitialisation du mot de passe envoyé',
                 'reset-link-failed' => 'Impossible d\'envoyer le lien de réinitialisation du mot de passe. Veuillez réessayer plus tard.',
                 'sign-in-link' => 'Retour à la connexion ?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Confirmer le mot de passe',
             'email' => 'Adresse e-mail enregistrée',
             'password' => 'Mot de passe',
-            'powered-by-description' => 'Propulsé par :bagisto, un projet open-source par :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Réinitialiser le mot de passe',
             'title' => 'Réinitialiser le mot de passe',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Général',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'En cache',
                         'database' => 'Base de données',
                         'drivers' => 'Pilotes',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Propulsé par <a href="https://bagisto.com/" target="_blank">Bagisto</a>, un projet communautaire par <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

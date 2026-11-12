@@ -6,7 +6,7 @@ return [
             'email' => 'Email Address',
             'forget-password-link' => 'Forget Password ?',
             'password' => 'Password',
-            'powered-by-description' => 'Powered by :bagisto, an open-source project by :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Sign In',
             'title' => 'Sign In',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Registered Email',
                 'email-not-exist' => 'Email Not Exists',
                 'page-title' => 'Forget Password',
-                'powered-by-description' => 'Powered by :bagisto, an open-source project by :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Reset Password link sent',
                 'reset-link-failed' => 'Linkul de resetare a parolei nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu.',
                 'sign-in-link' => 'Back to Sign In ?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Confirm Password',
             'email' => 'Registered Email',
             'password' => 'Password',
-            'powered-by-description' => 'Powered by :bagisto, an open-source project by :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Reset Password',
             'title' => 'Reset Password',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'General',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Cached',
                         'database' => 'Database',
                         'drivers' => 'Drivers',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Powered by <a href="https://bagisto.com/" target="_blank">Bagisto</a>, A Community Project by <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

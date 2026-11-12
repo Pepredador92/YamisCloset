@@ -5,7 +5,7 @@ return [
         'forgot-password' => [
             'already-sent' => 'Email untuk mengatur ulang kata sandi sudah dikirim.',
             'back' => 'Kembali ke halaman masuk?',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'email' => 'Email',
             'email-not-exist' => 'Kami tidak dapat menemukan pengguna dengan alamat email tersebut.',
             'footer' => '© Hak Cipta 2010 - :current_year, Webkul Software (Terdaftar di India). Seluruh hak cipta dilindungi undang-undang.',
@@ -20,7 +20,7 @@ return [
 
         'reset-password' => [
             'back-link-title' => 'Kembali ke Halaman Masuk',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'confirm-password' => 'Konfirmasi Kata Sandi',
             'email' => 'Email Terdaftar',
             'footer' => '© Hak Cipta 2010 - :current_year, Webkul Software (Terdaftar di India). Seluruh hak cipta dilindungi undang-undang.',
@@ -30,7 +30,7 @@ return [
         ],
 
         'login-form' => [
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Masuk',
             'create-your-account' => 'Buat akun Anda',
             'email' => 'Email',
@@ -50,7 +50,7 @@ return [
 
         'signup-form' => [
             'account-exists' => 'Sudah memiliki akun?',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Daftar',
             'click-here' => 'Klik di sini',
             'confirm-pass' => 'Konfirmasi Kata Sandi',
@@ -584,7 +584,7 @@ return [
                     'bottom' => [
                         'all' => 'Semua',
                         'back-button' => 'Kembali ke Menu Utama',
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'categories' => 'Kategori',
                         'compare' => 'Bandingkan',
                         'dropdown-text' => 'Kelola Keranjang, Pesanan & Daftar Keinginan',
@@ -605,7 +605,7 @@ return [
                 'mobile' => [
                     'account' => 'Akun',
                     'back-button' => 'Kembali ke Menu Utama',
-                    'bagisto' => 'Bagisto',
+                    'bagisto' => 'Yamis Closet',
                     'compare' => 'Bandingkan',
                     'currencies' => 'Mata Uang',
                     'dropdown-text' => 'Kelola Keranjang, Pesanan & Daftar Keinginan',
@@ -1114,7 +1114,7 @@ return [
             'suspended-account-message' => 'Akun Anda telah ditangguhkan.',
 
             'index' => [
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'cart' => 'Keranjang',
                 'continue-shopping' => 'Lanjut Belanja',
                 'empty-product' => 'Keranjang Anda masih kosong.',

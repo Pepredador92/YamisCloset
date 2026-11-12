@@ -11,7 +11,7 @@
 
         <a
             href="{{ route('shop.home.index') }}"
-            aria-label="@lang('shop::app.components.layouts.header.desktop.bottom.bagisto')"
+            aria-label="{{ config('app.name') }}"
         >
             <img
                 src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
@@ -435,7 +435,7 @@
                 </div>
             </div>
 
-            <!-- Bagisto Drawer Integration -->
+            <!-- Drawer integration -->
             <x-shop::drawer
                 position="left"
                 width="400px"

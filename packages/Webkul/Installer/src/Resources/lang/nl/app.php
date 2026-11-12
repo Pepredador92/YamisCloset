@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => 'Beheerder',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'Bevestig wachtwoord',
                 'email' => 'E-mail',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'Toepassingsnaam',
                 'argentine-peso' => 'Argentijnse Peso (ARS)',
                 'australian-dollar' => 'Australische Dollar (AUD)',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'Bangladesh Taka (BDT)',
                 'bahraini-dinar' => 'Bahreinse Dinar (BHD)',
                 'brazilian-real' => 'Braziliaanse Real (BRL)',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'Bagisto installatie',
+                'bagisto' => 'Yamis Closet installatie',
                 'bagisto-info' => 'Het maken van database tabellen kan even duren',
                 'title' => 'Installatie',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'Beheerderspaneel',
-                'bagisto-forums' => 'Bagisto Forum',
+                'bagisto-forums' => 'Yamis Closet Forum',
                 'customer-panel' => 'Klantenpaneel',
-                'explore-bagisto-extensions' => 'Verken Bagisto-extensies',
+                'explore-bagisto-extensions' => 'Verken Yamis Closet-extensies',
                 'title' => 'Installatie voltooid',
-                'title-info' => 'Bagisto is succesvol geïnstalleerd op uw systeem.',
+                'title-info' => 'Yamis Closet is succesvol geïnstalleerd op uw systeem.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'Database tabellen aanmaken',
                 'drop-existing-tables' => 'Verwijder bestaande tabellen',
                 'install' => 'Installatie',
-                'install-info' => 'Bagisto Voor Installatie',
+                'install-info' => 'Yamis Closet Voor Installatie',
                 'install-info-button' => 'Klik op de knop hieronder om',
                 'populate-database-tables' => 'Vul de databasetabellen',
                 'start-installation' => 'Start Installatie',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'Locatie',
                 'main' => 'Start',
                 'select-locale' => 'Selecteer Locatie',
-                'title' => 'Uw Bagisto-installatie',
-                'welcome-title' => 'Welkom bij Bagisto',
+                'title' => 'Uw Yamis Closet-installatie',
+                'welcome-title' => 'Welkom bij Yamis Closet',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'Arabisch',
             'back' => 'Terug',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'Een communityproject van',
-            'bagisto-logo' => 'Bagisto Logo',
+            'bagisto-logo' => 'Yamis Closet Logo',
             'bengali' => 'Bengaals',
             'catalan' => 'Catalaans',
             'chinese' => 'Chinees',
@@ -1006,9 +1006,9 @@ return [
             'hebrew' => 'Hebreeuws',
             'hindi' => 'Hindi',
             'indonesian' => 'Indonesisch',
-            'installation-description' => 'De installatie van Bagisto omvat doorgaans verschillende stappen. Hier is een algemeen overzicht van het installatieproces voor Bagisto',
+            'installation-description' => 'De installatie van Yamis Closet omvat doorgaans verschillende stappen. Hier is een algemeen overzicht van het installatieproces voor Yamis Closet',
             'installation-info' => 'We zijn blij je hier te zien!',
-            'installation-title' => 'Welkom bij de Bagisto-installatie',
+            'installation-title' => 'Welkom bij de Yamis Closet-installatie',
             'italian' => 'Italiaans',
             'japanese' => 'Japans',
             'persian' => 'Perzisch',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'Singalees',
             'spanish' => 'Spaans',
             'swahili' => 'Swahili',
-            'title' => 'Bagisto Installer',
+            'title' => 'Yamis Closet Installer',
             'turkish' => 'Turks',
             'ukrainian' => 'Oekraïens',
             'webkul' => 'Webkul',

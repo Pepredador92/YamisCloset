@@ -6,7 +6,7 @@ return [
             'email' => 'Adreça de correu electrònic',
             'forget-password-link' => 'Has oblidat la contrasenya?',
             'password' => 'Contrasenya',
-            'powered-by-description' => 'Impulsat per :bagisto, un projecte de codi obert de :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Iniciar sessió',
             'title' => 'Iniciar sessió',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Correu electrònic registrat',
                 'email-not-exist' => 'El correu electrònic no existeix',
                 'page-title' => 'Oblidar contrasenya',
-                'powered-by-description' => 'Impulsat per :bagisto, un projecte de codi obert de :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Enllaç per restablir la contrasenya enviat',
                 'reset-link-failed' => 'No s\'ha pogut enviar l\'enllaç per restablir la contrasenya. Torneu-ho a provar més tard.',
                 'sign-in-link' => 'Tornar a iniciar sessió?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Confirmar contrasenya',
             'email' => 'Correu electrònic registrat',
             'password' => 'Contrasenya',
-            'powered-by-description' => 'Impulsat per :bagisto, un projecte de codi obert de :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Restablir contrasenya',
             'title' => 'Restablir contrasenya',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'General',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'En memòria cau',
                         'database' => 'Base de dades',
                         'drivers' => 'Controladors',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Desenvolupat per <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Un Projecte Comunitari per <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

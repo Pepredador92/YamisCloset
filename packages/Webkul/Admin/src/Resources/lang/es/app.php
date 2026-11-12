@@ -6,7 +6,7 @@ return [
             'email' => 'Dirección de Correo Electrónico',
             'forget-password-link' => '¿Olvidaste tu Contraseña?',
             'password' => 'Contraseña',
-            'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Iniciar Sesión',
             'title' => 'Iniciar Sesión',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Correo electrónico registrado',
                 'email-not-exist' => 'El correo electrónico no existe',
                 'page-title' => 'Olvidar contraseña',
-                'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Enlace para restablecer la contraseña enviado',
                 'reset-link-failed' => 'No se ha podido enviar el enlace para restablecer la contraseña. Inténtelo de nuevo más tarde.',
                 'sign-in-link' => '¿Volver a iniciar sesión?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Confirmar contraseña',
             'email' => 'Correo electrónico registrado',
             'password' => 'Contraseña',
-            'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Restablecer contraseña',
             'title' => 'Restablecer contraseña',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'General',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'En caché',
                         'database' => 'Base de datos',
                         'drivers' => 'Controladores',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Desarrollado por <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Un Proyecto Comunitario por <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [
@@ -6519,7 +6519,7 @@ return [
             'refunded-at' => 'Reembolsado el',
 
             'actions' => 'Acciones',
-            'actions-note' => 'Los reembolsos se procesan manualmente con las herramientas existentes de Bagisto de pedido / reembolso / RMA. Use estas acciones para registrar el resultado en la prueba del desistimiento.',
+            'actions-note' => 'Los reembolsos se registran con las herramientas de pedidos y reembolsos de la tienda. Usa estas acciones para guardar el resultado de la solicitud.',
             'resend-confirmation' => 'Reenviar correo de confirmación',
             'mark-refunded' => 'Marcar como reembolsado',
             'refund-note-label' => 'Referencia del reembolso (opcional)',

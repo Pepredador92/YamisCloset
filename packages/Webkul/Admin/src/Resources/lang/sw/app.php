@@ -6,7 +6,7 @@ return [
             'email' => 'Barua Pepe',
             'forget-password-link' => 'Umesahau Nenosiri?',
             'password' => 'Nenosiri',
-            'powered-by-description' => 'Inaendeshwa na :bagisto, mradi wa chanzo huria kutoka :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Ingia',
             'title' => 'Ingia',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Barua Pepe Iliyosajiliwa',
                 'email-not-exist' => 'Barua Pepe Haipatikani',
                 'page-title' => 'Umesahau Nenosiri',
-                'powered-by-description' => 'Inaendeshwa na :bagisto, mradi wa chanzo huria kutoka :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Kiungo cha kubadilisha nenosiri kimetumwa',
                 'reset-link-failed' => 'Imeshindikana kutuma kiungo cha kubadilisha nenosiri. Tafadhali jaribu tena baadaye.',
                 'sign-in-link' => 'Rudi Kuingia?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Thibitisha Nenosiri',
             'email' => 'Barua Pepe Iliyosajiliwa',
             'password' => 'Nenosiri',
-            'powered-by-description' => 'Inaendeshwa na :bagisto, mradi wa chanzo huria kutoka :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Weka Upya Nenosiri',
             'title' => 'Weka Upya Nenosiri',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Kuu',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Kache',
                         'database' => 'Hifadhidata',
                         'drivers' => 'Viendeshi',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Inaendeshwa na <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Mradi wa Jamii kutoka <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

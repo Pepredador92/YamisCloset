@@ -5,7 +5,7 @@ return [
         'forgot-password' => [
             'already-sent' => 'El correu de restabliment de contrasenya ja s’ha enviat.',
             'back' => 'Tornar a iniciar sessió',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'email' => 'Correu electrònic',
             'email-not-exist' => 'No podem trobar un usuari amb aquesta adreça de correu electrònic.',
             'footer' => '© Drets d’autor 2010 - :current_year, Webkul Software (Registrat a l’Índia). Tots els drets reservats.',
@@ -20,7 +20,7 @@ return [
 
         'reset-password' => [
             'back-link-title' => 'Tornar a iniciar sessió',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'confirm-password' => 'Confirmar contrasenya',
             'email' => 'Correu electrònic registrat',
             'footer' => '© Drets d’autor 2010 - :current_year, Webkul Software (Registrada a l’Índia). Tots els drets reservats.',
@@ -30,7 +30,7 @@ return [
         ],
 
         'login-form' => [
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Iniciar sessió',
             'create-your-account' => 'Crea el teu compte',
             'email' => 'Correu electrònic',
@@ -50,7 +50,7 @@ return [
 
         'signup-form' => [
             'account-exists' => 'Ja tens un compte?',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'button-title' => 'Registrar-se',
             'click-here' => 'Clica aquí',
             'confirm-pass' => 'Confirmar contrasenya',
@@ -584,7 +584,7 @@ return [
                     'bottom' => [
                         'all' => 'Tot',
                         'back-button' => 'Torna al menú principal',
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'categories' => 'Categories',
                         'compare' => 'Comparar',
                         'dropdown-text' => 'Gestiona la cistella, comandes i desitjats',
@@ -605,7 +605,7 @@ return [
                 'mobile' => [
                     'account' => 'Compte',
                     'back-button' => 'Torna al menú principal',
-                    'bagisto' => 'Bagisto',
+                    'bagisto' => 'Yamis Closet',
                     'compare' => 'Comparar',
                     'currencies' => 'Monedes',
                     'dropdown-text' => 'Gestiona la cistella, comandes i desitjats',
@@ -1114,7 +1114,7 @@ return [
             'suspended-account-message' => 'El teu compte ha estat suspès.',
 
             'index' => [
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'cart' => 'Cistella',
                 'continue-shopping' => 'Continuar comprant',
                 'empty-product' => 'No tens productes a la teva cistella.',

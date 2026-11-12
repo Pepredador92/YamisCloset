@@ -6,7 +6,7 @@
 >
 
 <head>
-    <title>{{ $title ?? '' }}</title>
+    <title>{{ ! empty($title) ? (str_contains((string) $title, config('app.name')) ? $title : $title.' | '.config('app.name')) : config('app.name') }}</title>
 
     <meta charset="UTF-8">
 
@@ -29,7 +29,7 @@
     >
     <meta 
         name="generator" 
-        content="Bagisto"
+        content="Yamis Closet"
     >
 
     @stack('meta')
@@ -56,7 +56,7 @@
     @else
         <link
             type="image/x-icon"
-            href="{{ bagisto_asset('images/favicon.ico') }}"
+            href="{{ asset('yamis-closet-favicon.svg') }}"
             rel="shortcut icon"
             sizes="16x16"
         />
@@ -74,7 +74,7 @@
 <body>
     {!! view_render_event('bagisto.admin.layout.body.before') !!}
 
-    <!-- Built With Bagisto -->
+    <!-- Yamis Closet administration -->
     <div id="app">
         <!-- Flash Message Blade Component -->
         <x-admin::flash-group />

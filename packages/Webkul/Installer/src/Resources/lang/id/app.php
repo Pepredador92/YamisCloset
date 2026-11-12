@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => 'Admin',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'Konfirmasi Kata Sandi',
                 'email' => 'Email',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'Nama Aplikasi',
                 'argentine-peso' => 'Peso Argentina (ARS)',
                 'australian-dollar' => 'Dolar Australia (AUD)',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'Taka Bangladesh (BDT)',
                 'bahraini-dinar' => 'Dinar Bahrain (BHD)',
                 'brazilian-real' => 'Real Brasil (BRL)',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'Instalasi Bagisto',
+                'bagisto' => 'Instalasi Yamis Closet',
                 'bagisto-info' => 'Membuat tabel database, ini dapat memakan waktu beberapa saat',
                 'title' => 'Instalasi',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'Panel Admin',
-                'bagisto-forums' => 'Forum Bagisto',
+                'bagisto-forums' => 'Forum Yamis Closet',
                 'customer-panel' => 'Panel Pelanggan',
-                'explore-bagisto-extensions' => 'Jelajahi Ekstensi Bagisto',
+                'explore-bagisto-extensions' => 'Jelajahi Ekstensi Yamis Closet',
                 'title' => 'Instalasi Selesai',
-                'title-info' => 'Bagisto berhasil diinstal di sistem Anda.',
+                'title-info' => 'Yamis Closet berhasil diinstal di sistem Anda.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'Buat tabel database',
                 'drop-existing-tables' => 'Hapus tabel yang ada',
                 'install' => 'Instalasi',
-                'install-info' => 'Bagisto untuk Instalasi',
+                'install-info' => 'Yamis Closet untuk Instalasi',
                 'install-info-button' => 'Klik tombol di bawah untuk',
                 'populate-database-tables' => 'Isi tabel database',
                 'start-installation' => 'Mulai Instalasi',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'Locale',
                 'main' => 'Mulai',
                 'select-locale' => 'Pilih Locale',
-                'title' => 'Instalasi Bagisto Anda',
-                'welcome-title' => 'Selamat datang di Bagisto',
+                'title' => 'Instalasi Yamis Closet Anda',
+                'welcome-title' => 'Selamat datang di Yamis Closet',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'Arab',
             'back' => 'Kembali',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'Proyek Komunitas oleh',
-            'bagisto-logo' => 'Logo Bagisto',
+            'bagisto-logo' => 'Logo Yamis Closet',
             'bengali' => 'Bengali',
             'catalan' => 'Katalan',
             'chinese' => 'Cina',
@@ -1006,7 +1006,7 @@ return [
             'hebrew' => 'Ibrani',
             'hindi' => 'Hindi',
             'indonesian' => 'Indonesia',
-            'installation-description' => 'Instalasi Bagisto umumnya melibatkan beberapa langkah. Berikut adalah gambaran umum proses instalasi untuk Bagisto',
+            'installation-description' => 'Instalasi Yamis Closet umumnya melibatkan beberapa langkah. Berikut adalah gambaran umum proses instalasi untuk Yamis Closet',
             'installation-info' => 'Kami senang melihat Anda di sini!',
             'installation-title' => 'Selamat datang di Instalasi',
             'italian' => 'Italia',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'Sinhala',
             'spanish' => 'Spanyol',
             'swahili' => 'Swahili',
-            'title' => 'Pemasang Bagisto',
+            'title' => 'Pemasang Yamis Closet',
             'turkish' => 'Turki',
             'ukrainian' => 'Ukraina',
             'webkul' => 'Webkul',

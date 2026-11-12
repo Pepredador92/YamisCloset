@@ -14,7 +14,7 @@
 
         {!! view_render_event('bagisto.shop.layout.head.before') !!}
 
-        <title>{{ $title ?? '' }}</title>
+        <title>{{ ! empty($title) ? (str_contains((string) $title, config('app.name')) ? $title : $title.' | '.config('app.name')) : config('app.name') }}</title>
 
         <meta charset="UTF-8">
 
@@ -41,7 +41,7 @@
         >
         <meta 
             name="generator" 
-            content="Bagisto"
+            content="Yamis Closet"
         >
 
         @stack('meta')
@@ -49,7 +49,7 @@
         <link
             rel="icon"
             sizes="16x16"
-            href="{{ core()->getCurrentChannel()->favicon_url ?? bagisto_asset('images/favicon.ico') }}"
+            href="{{ asset('yamis-closet-favicon.svg') }}"
         />
 
         @bagistoVite(['src/Resources/assets/css/app.css', 'src/Resources/assets/js/app.js'])
@@ -102,7 +102,7 @@
             Skip to main content
         </a>
 
-        <!-- Built With Bagisto -->
+        <!-- Yamis Closet storefront -->
         <div id="app">
             <!-- Flash Message Blade Component -->
             <x-shop::flash-group />

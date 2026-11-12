@@ -308,7 +308,7 @@
 @pushOnce('styles')
     <style>
         /* ============================================
-           Bagisto Booking Calendar — modern theme
+           Booking Calendar styling
            ============================================ */
         .calendar-container {
             min-height: 640px;

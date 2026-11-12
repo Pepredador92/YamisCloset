@@ -6,7 +6,7 @@ return [
             'email' => 'メールアドレス',
             'forget-password-link' => 'パスワードを忘れましたか？',
             'password' => 'パスワード',
-            'powered-by-description' => ':webkul によるオープンソースプロジェクト :bagisto によって提供されています。',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'サインイン',
             'title' => 'サインイン',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => '登録済みメールアドレス',
                 'email-not-exist' => 'メールアドレスが存在しません',
                 'page-title' => 'パスワードを忘れる',
-                'powered-by-description' => ':webkul によるオープンソースプロジェクト :bagisto によって提供されています。',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'パスワードリセットリンク送信済み',
                 'reset-link-failed' => 'パスワードリセットリンクを送信できませんでした。しばらくしてからもう一度お試しください。',
                 'sign-in-link' => 'サインイン画面に戻る？',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'パスワードを確認',
             'email' => '登録済みメールアドレス',
             'password' => 'パスワード',
-            'powered-by-description' => ':webkul によるオープンソースプロジェクト :bagisto によって提供されています。',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'パスワードをリセット',
             'title' => 'パスワードをリセット',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => '一般',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'キャッシュ済み',
                         'database' => 'データベース',
                         'drivers' => 'ドライバ',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => '搭載 <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Webkulによるコミュニティプロジェクト<a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

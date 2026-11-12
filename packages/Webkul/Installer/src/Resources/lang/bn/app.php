@@ -951,7 +951,7 @@ return [
                 'create-database-tables' => 'ডাটাবেস টেবিলগুলি তৈরি করুন',
                 'drop-existing-tables' => 'বিদ্যমান কোনো টেবিল মুছে ফেলুন',
                 'install' => 'ইনস্টলেশন',
-                'install-info' => 'ইনস্টলেশনের জন্য Bagisto',
+                'install-info' => 'ইনস্টলেশনের জন্য Yamis Closet',
                 'install-info-button' => 'নীচের বাটনে ক্লিক করুন',
                 'populate-database-tables' => 'ডাটাবেস টেবিল পূর্ণ করুন',
                 'start-installation' => 'ইনস্টলেশন শুরু করুন',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'লোকেল',
                 'main' => 'শুরু',
                 'select-locale' => 'লোকেল নির্বাচন করুন',
-                'title' => 'আপনার Bagisto ইনস্টলেশন',
-                'welcome-title' => 'Bagisto এ আপনাকে স্বাগতম',
+                'title' => 'আপনার Yamis Closet ইনস্টলেশন',
+                'welcome-title' => 'Yamis Closet এ আপনাকে স্বাগতম',
             ],
 
             'server-requirements' => [

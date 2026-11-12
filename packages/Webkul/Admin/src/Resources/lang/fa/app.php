@@ -6,7 +6,7 @@ return [
             'email' => 'آدرس ایمیل',
             'forget-password-link' => 'فراموشی رمز عبور؟',
             'password' => 'رمز عبور',
-            'powered-by-description' => 'قدرت گرفته از :bagisto، یک پروژه متن‌باز توسط :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'ورود',
             'title' => 'ورود',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'آدرس ایمیل ثبت شده',
                 'email-not-exist' => 'آدرس ایمیل وجود ندارد',
                 'page-title' => 'فراموشی رمز عبور',
-                'powered-by-description' => 'قدرت گرفته از :bagisto، یک پروژه متن‌باز توسط :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'لینک تغییر رمز عبور ارسال شد',
                 'reset-link-failed' => 'ارسال پیوند بازنشانی رمز عبور ممکن نشد. لطفاً بعداً دوباره تلاش کنید.',
                 'sign-in-link' => 'بازگشت به صفحه ورود؟',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'تأیید رمز عبور',
             'email' => 'آدرس ایمیل ثبت شده',
             'password' => 'رمز عبور',
-            'powered-by-description' => 'قدرت گرفته از :bagisto، یک پروژه متن‌باز توسط :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'بازنشانی رمز عبور',
             'title' => 'بازنشانی رمز عبور',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'عمومی',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'ذخیره‌شده',
                         'database' => 'پایگاه داده',
                         'drivers' => 'درایورها',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'قدرت گرفته از <a href="https://bagisto.com/" target="_blank">Bagisto</a>، یک پروژه اجتماعی توسط <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

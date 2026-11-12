@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => 'Administrator',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'Potwierdź hasło',
                 'email' => 'Email',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'Nazwa Aplikacji',
                 'argentine-peso' => 'Peso Argentyńskie (ARS)',
                 'australian-dollar' => 'Dolar Australijski (AUD)',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'Taka Banglijska (BDT)',
                 'bahraini-dinar' => 'Dinar Bahrajnu (BHD)',
                 'brazilian-real' => 'Real Brazylijski (BRL)',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'Instalacja Bagisto',
+                'bagisto' => 'Instalacja Yamis Closet',
                 'bagisto-info' => 'Tworzenie tabel w bazie danych może zająć kilka chwil',
                 'title' => 'Instalacja',
             ],
 
             'installation-completed' => [
                 'admin-panel' => 'Panel administratora',
-                'bagisto-forums' => 'Forum Bagisto',
+                'bagisto-forums' => 'Forum Yamis Closet',
                 'customer-panel' => 'Panel klienta',
-                'explore-bagisto-extensions' => 'Przeglądaj rozszerzenia Bagisto',
+                'explore-bagisto-extensions' => 'Przeglądaj rozszerzenia Yamis Closet',
                 'title' => 'Instalacja zakończona',
-                'title-info' => 'Bagisto został pomyślnie zainstalowany na Twoim systemie.',
+                'title-info' => 'Yamis Closet został pomyślnie zainstalowany na Twoim systemie.',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'Utwórz tabele bazy danych',
                 'drop-existing-tables' => 'Usuń istniejące tabele',
                 'install' => 'Instalacja',
-                'install-info' => 'Informacje o instalacji Bagisto',
+                'install-info' => 'Informacje o instalacji Yamis Closet',
                 'install-info-button' => 'Kliknięcie przycisku poniżej rozpocznie instalację i spowoduje:',
                 'populate-database-tables' => 'Wypełnij tabele bazy danych',
                 'start-installation' => 'Rozpocznij instalację',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'Lokalizacja',
                 'main' => 'Rozpocznij',
                 'select-locale' => 'Wybierz język',
-                'title' => 'Instalacja Bagisto',
-                'welcome-title' => 'Witaj w Bagisto',
+                'title' => 'Instalacja Yamis Closet',
+                'welcome-title' => 'Witaj w Yamis Closet',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'Arabski',
             'back' => 'Wstecz',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'Projekt społecznościowy',
-            'bagisto-logo' => 'Logo Bagisto',
+            'bagisto-logo' => 'Logo Yamis Closet',
             'bengali' => 'Bengalski',
             'catalan' => 'Kataloński',
             'chinese' => 'Chiński',
@@ -1006,7 +1006,7 @@ return [
             'hebrew' => 'Hebrajski',
             'hindi' => 'Hinduski',
             'indonesian' => 'Indonezyjski',
-            'installation-description' => 'Instalacja Bagisto zazwyczaj obejmuje kilka kroków. Oto ogólny zarys procesu instalacji Bagisto',
+            'installation-description' => 'Instalacja Yamis Closet zazwyczaj obejmuje kilka kroków. Oto ogólny zarys procesu instalacji Yamis Closet',
             'installation-info' => 'Cieszymy się, że tu jesteś!',
             'installation-title' => 'Witaj w instalacji',
             'italian' => 'Włoski',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'Syngaleski',
             'spanish' => 'Hiszpański',
             'swahili' => 'Suahili',
-            'title' => 'Instalator Bagisto',
+            'title' => 'Instalator Yamis Closet',
             'turkish' => 'Turecki',
             'ukrainian' => 'Ukraiński',
             'webkul' => 'Webkul',

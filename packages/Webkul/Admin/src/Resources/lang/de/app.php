@@ -6,7 +6,7 @@ return [
             'email' => 'E-Mail-Adresse',
             'forget-password-link' => 'Passwort vergessen?',
             'password' => 'Passwort',
-            'powered-by-description' => 'Powered by :bagisto, ein Open-Source-Projekt von :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Anmelden',
             'title' => 'Anmelden',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Registrierte E-Mail',
                 'email-not-exist' => 'E-Mail existiert nicht',
                 'page-title' => 'Passwort vergessen',
-                'powered-by-description' => 'Powered by :bagisto, ein Open-Source-Projekt von :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Link zum Zurücksetzen des Passworts gesendet',
                 'reset-link-failed' => 'Der Link zum Zurücksetzen des Passworts konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.',
                 'sign-in-link' => 'Zurück zur Anmeldung?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Passwort bestätigen',
             'email' => 'Registrierte E-Mail',
             'password' => 'Passwort',
-            'powered-by-description' => 'Powered by :bagisto, ein Open-Source-Projekt von :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Passwort zurücksetzen',
             'title' => 'Passwort zurücksetzen',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Allgemein',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Zwischengespeichert',
                         'database' => 'Datenbank',
                         'drivers' => 'Treiber',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Powered by <a href="https://bagisto.com/" target="_blank">Bagisto</a>, ein Community-Projekt von <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

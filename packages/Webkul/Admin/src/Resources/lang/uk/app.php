@@ -6,7 +6,7 @@ return [
             'email' => 'Адреса електронної пошти',
             'forget-password-link' => 'Забули пароль?',
             'password' => 'Пароль',
-            'powered-by-description' => 'Працює на платформі :bagisto, спільний проект :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Увійти',
             'title' => 'Увійти',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Зареєстрована електронна пошта',
                 'email-not-exist' => 'Електронна пошта не існує',
                 'page-title' => 'Забули пароль',
-                'powered-by-description' => 'Працює на платформі :bagisto, спільний проект :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Посилання на скидання пароля відправлено',
                 'reset-link-failed' => 'Не вдалося надіслати посилання для скидання пароля. Будь ласка, спробуйте пізніше.',
                 'sign-in-link' => 'Повернутися до увійти?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Підтвердити пароль',
             'email' => 'Зареєстрована електронна пошта',
             'password' => 'Пароль',
-            'powered-by-description' => 'Працює на платформі :bagisto, спільний проект :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Скинути пароль',
             'title' => 'Скидання пароля',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Загальні',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'Кешовано',
                         'database' => 'База даних',
                         'drivers' => 'Драйвери',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Працює на платформі <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Спільний проект <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

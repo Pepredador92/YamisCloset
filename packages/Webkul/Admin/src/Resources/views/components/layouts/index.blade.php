@@ -9,7 +9,7 @@
 <head>
     {!! view_render_event('bagisto.admin.layout.head.before') !!}
 
-    <title>{{ $title ?? '' }}</title>
+    <title>{{ ! empty($title) ? (str_contains((string) $title, config('app.name')) ? $title : $title.' | '.config('app.name')) : config('app.name') }}</title>
 
     <meta charset="UTF-8">
 
@@ -35,7 +35,7 @@
     >
     <meta
         name="generator"
-        content="Bagisto"
+        content="Yamis Closet"
     >
 
     @if ($broadcasting = app(\Webkul\Admin\Helpers\Broadcasting::class)->clientConfig())
@@ -82,7 +82,7 @@
     @else
         <link
             type="image/x-icon"
-            href="{{ bagisto_asset('images/favicon.ico') }}"
+            href="{{ asset('yamis-closet-favicon.svg') }}"
             rel="shortcut icon"
             sizes="16x16"
         />
@@ -100,7 +100,7 @@
 <body class="h-full dark:bg-gray-950">
     {!! view_render_event('bagisto.admin.layout.body.before') !!}
 
-    <!-- Built With Bagisto -->
+    <!-- Yamis Closet administration -->
     <div
         id="app"
         class="h-full"
@@ -139,10 +139,11 @@
                 <!-- Powered By -->
                 <div class="mt-auto">
                     <div class="border-t bg-white py-2 text-center text-xs sm:text-sm dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                        @lang('admin::app.components.layouts.powered-by.description', [
-                            'bagisto' => '<a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://bagisto.com/en/">Bagisto</a>',
-                            'webkul' => '<a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://webkul.com/">Webkul</a>',
-                        ])
+                        @if (app()->isLocale('es'))
+                            Yamis Closet · Administración de la tienda
+                        @else
+                            Yamis Closet · Store administration
+                        @endif
                     </div>
                 </div>
             </div>

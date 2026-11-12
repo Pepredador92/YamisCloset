@@ -6,7 +6,7 @@ return [
             'email' => 'Adres e-mail',
             'forget-password-link' => 'Zapomniałeś hasła?',
             'password' => 'Hasło',
-            'powered-by-description' => 'Napędzane przez :bagisto, projekt open-source autorstwa :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Zaloguj się',
             'title' => 'Zaloguj się',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Zarejestrowany adres e-mail',
                 'email-not-exist' => 'E-mail nie istnieje',
                 'page-title' => 'Zapomniałem hasła',
-                'powered-by-description' => 'Napędzane przez :bagisto, projekt open-source autorstwa :webkul.',
+                'powered-by-description' => 'Yamis Closet',
                 'reset-link-sent' => 'Link do resetowania hasła wysłany',
                 'reset-link-failed' => 'Nie udało się wysłać linku do zresetowania hasła. Spróbuj ponownie później.',
                 'sign-in-link' => 'Powrót do logowania?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Potwierdź hasło',
             'email' => 'Zarejestrowany adres e-mail',
             'password' => 'Hasło',
-            'powered-by-description' => 'Napędzane przez :bagisto, projekt open-source autorstwa :webkul.',
+            'powered-by-description' => 'Yamis Closet',
             'submit-btn' => 'Zresetuj hasło',
             'title' => 'Zresetuj hasło',
         ],
@@ -4403,7 +4403,7 @@ return [
                     'title' => 'Ogólne',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'Yamis Closet',
                         'cache' => 'W pamięci podręcznej',
                         'database' => 'Baza danych',
                         'drivers' => 'Sterowniki',
@@ -6316,7 +6316,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Napędzane przez <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Projekt społecznościowy <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => 'Yamis Closet',
     ],
 
     'emails' => [

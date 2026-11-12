@@ -815,7 +815,7 @@ return [
         'index' => [
             'create-administrator' => [
                 'admin' => '管理者',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'confirm-password' => 'パスワードの確認',
                 'email' => 'メール',
                 'email-address' => 'admin@example.com',
@@ -830,7 +830,7 @@ return [
                 'application-name' => 'アプリケーション名',
                 'argentine-peso' => 'アルゼンチンペソ（ARS）',
                 'australian-dollar' => 'オーストラリアドル（AUD）',
-                'bagisto' => 'Bagisto',
+                'bagisto' => 'Yamis Closet',
                 'bangladeshi-taka' => 'バングラデシュタカ（BDT）',
                 'bahraini-dinar' => 'バーレーンディナール（BHD）',
                 'brazilian-real' => 'ブラジルレアル（BRL）',
@@ -933,25 +933,25 @@ return [
             ],
 
             'installation-processing' => [
-                'bagisto' => 'Bagistoのインストール',
+                'bagisto' => 'Yamis Closetのインストール',
                 'bagisto-info' => 'データベーステーブルの作成中、これには数分かかることがあります',
                 'title' => 'インストール',
             ],
 
             'installation-completed' => [
                 'admin-panel' => '管理パネル',
-                'bagisto-forums' => 'Bagistoフォーラム',
+                'bagisto-forums' => 'Yamis Closetフォーラム',
                 'customer-panel' => '顧客パネル',
-                'explore-bagisto-extensions' => 'Bagisto拡張機能の探索',
+                'explore-bagisto-extensions' => 'Yamis Closet拡張機能の探索',
                 'title' => 'インストールが完了しました',
-                'title-info' => 'Bagistoがシステムに正常にインストールされました。',
+                'title-info' => 'Yamis Closetがシステムに正常にインストールされました。',
             ],
 
             'ready-for-installation' => [
                 'create-database-tables' => 'データベーステーブルを作成',
                 'drop-existing-tables' => '既存のテーブルを削除',
                 'install' => 'インストール',
-                'install-info' => 'インストール用のBagisto',
+                'install-info' => 'インストール用のYamis Closet',
                 'install-info-button' => '以下のボタンをクリックしてください',
                 'populate-database-tables' => 'データベーステーブルを作成する',
                 'start-installation' => 'インストールを開始',
@@ -963,8 +963,8 @@ return [
                 'locale' => 'ロケール',
                 'main' => '開始',
                 'select-locale' => 'ロケールを選択',
-                'title' => 'Bagistoのインストール',
-                'welcome-title' => 'Bagistoへようこそ',
+                'title' => 'Yamis Closetのインストール',
+                'welcome-title' => 'Yamis Closetへようこそ',
             ],
 
             'server-requirements' => [
@@ -992,9 +992,9 @@ return [
 
             'arabic' => 'アラビア語',
             'back' => '戻る',
-            'bagisto' => 'Bagisto',
+            'bagisto' => 'Yamis Closet',
             'bagisto-info' => 'コミュニティプロジェクト by',
-            'bagisto-logo' => 'Bagistoロゴ',
+            'bagisto-logo' => 'Yamis Closetロゴ',
             'bengali' => 'ベンガル語',
             'catalan' => 'カタルーニャ語',
             'chinese' => '中国語',
@@ -1006,9 +1006,9 @@ return [
             'hebrew' => 'ヘブライ語',
             'hindi' => 'ヒンディー語',
             'indonesian' => 'インドネシア語',
-            'installation-description' => 'Bagistoのインストールには通常、いくつかのステップが含まれます。 ここにBagistoのインストールプロセスの一般的な概要があります',
+            'installation-description' => 'Yamis Closetのインストールには通常、いくつかのステップが含まれます。 ここにYamis Closetのインストールプロセスの一般的な概要があります',
             'installation-info' => 'ここにいてくれてうれしいです！',
-            'installation-title' => 'Bagistoインストールへようこそ',
+            'installation-title' => 'Yamis Closetインストールへようこそ',
             'italian' => 'イタリア語',
             'japanese' => '日本語',
             'persian' => 'ペルシャ語',
@@ -1019,7 +1019,7 @@ return [
             'sinhala' => 'シンハラ語',
             'spanish' => 'スペイン語',
             'swahili' => 'スワヒリ語',
-            'title' => 'Bagistoインストーラ',
+            'title' => 'Yamis Closetインストーラ',
             'turkish' => 'トルコ語',
             'ukrainian' => 'ウクライナ語',
             'webkul' => 'Webkul',
