@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+!.env.example
+.run
+.vercel
+node_modules
+vendor
+tests
+storage/logs/*
+storage/framework/cache/data/*
