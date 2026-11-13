@@ -75,6 +75,25 @@ return [
         'route' => 'admin.sales.orders.cancel',
         'sort' => 3,
     ], [
+        'key' => 'sales.installments',
+        'name' => 'installments.title',
+        'route' => [
+            'admin.sales.installments.index',
+            'admin.sales.installments.order',
+            'admin.sales.installments.show',
+        ],
+        'sort' => 8,
+    ], [
+        'key' => 'sales.installments.edit',
+        'name' => 'admin::app.acl.edit',
+        'route' => [
+            'admin.sales.installments.store',
+            'admin.sales.installments.update',
+            'admin.sales.installments.payment',
+            'admin.sales.installments.void',
+        ],
+        'sort' => 1,
+    ], [
         'key' => 'sales.invoices',
         'name' => 'admin::app.acl.invoices',
         'route' => 'admin.sales.invoices.index',

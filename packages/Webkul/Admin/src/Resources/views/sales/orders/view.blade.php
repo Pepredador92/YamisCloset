@@ -35,6 +35,15 @@
         <div class="flex gap-1.5">
             {!! view_render_event('bagisto.admin.sales.order.page_action.before', ['order' => $order]) !!}
 
+            @if (bouncer()->hasPermission('sales.installments'))
+                <a
+                    href="{{ route('admin.sales.installments.order', $order->id) }}"
+                    class="secondary-button"
+                >
+                    @lang('installments.title')
+                </a>
+            @endif
+
             @if (
                 $order->canReorder()
                 && bouncer()->hasPermission('sales.orders.create')

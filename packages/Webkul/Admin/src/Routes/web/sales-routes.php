@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SalesInstallmentController;
 use Illuminate\Support\Facades\Route;
 use Webkul\Admin\Http\Controllers\Sales\BookingController;
 use Webkul\Admin\Http\Controllers\Sales\BookingProductController;
@@ -20,6 +21,16 @@ use Webkul\Admin\Http\Controllers\Sales\TransactionController;
  * Sales routes.
  */
 Route::prefix('sales')->group(function () {
+    Route::controller(SalesInstallmentController::class)->prefix('installments')->name('admin.sales.installments.')->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('order/{order}', 'order')->whereNumber('order')->name('order');
+        Route::post('order/{order}', 'store')->whereNumber('order')->name('store');
+        Route::get('{plan}', 'show')->whereNumber('plan')->name('show');
+        Route::patch('{plan}', 'update')->whereNumber('plan')->name('update');
+        Route::post('{plan}/payments', 'payment')->whereNumber('plan')->name('payment');
+        Route::patch('{plan}/payments/{payment}/void', 'voidPayment')->whereNumber(['plan', 'payment'])->name('void');
+    });
+
     /**
      * Invoices routes.
      */

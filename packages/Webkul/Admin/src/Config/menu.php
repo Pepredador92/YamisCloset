@@ -34,9 +34,9 @@ return [
         'sort' => 2,
         'icon' => '',
     ], [
-        'key' => 'sales.invoices',
-        'name' => 'admin::app.components.layouts.sidebar.invoices',
-        'route' => 'admin.sales.invoices.index',
+        'key' => 'sales.installments',
+        'name' => 'installments.title',
+        'route' => 'admin.sales.installments.index',
         'sort' => 3,
         'icon' => '',
     ], [
@@ -46,58 +46,10 @@ return [
         'sort' => 4,
         'icon' => '',
     ], [
-        'key' => 'sales.transactions',
-        'name' => 'admin::app.components.layouts.sidebar.transactions',
-        'route' => 'admin.sales.transactions.index',
-        'sort' => 5,
-        'icon' => '',
-    ], [
         'key' => 'sales.bookings',
         'name' => 'admin::app.components.layouts.sidebar.booking-product',
         'route' => 'admin.sales.bookings.index',
-        'sort' => 6,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma',
-        'name' => 'admin::app.components.layouts.sidebar.rma',
-        'route' => 'admin.sales.rma.requests.index',
-        'sort' => 7,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma.requests',
-        'name' => 'admin::app.components.layouts.sidebar.requests',
-        'route' => 'admin.sales.rma.requests.index',
-        'sort' => 1,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma.reasons',
-        'name' => 'admin::app.components.layouts.sidebar.reasons',
-        'route' => 'admin.sales.rma.reasons.index',
-        'sort' => 2,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma.rules',
-        'name' => 'admin::app.components.layouts.sidebar.rules',
-        'route' => 'admin.sales.rma.rules.index',
-        'sort' => 3,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma.statuses',
-        'name' => 'admin::app.components.layouts.sidebar.statuses',
-        'route' => 'admin.sales.rma.statuses.index',
-        'sort' => 4,
-        'icon' => '',
-    ], [
-        'key' => 'sales.rma.custom-fields',
-        'name' => 'admin::app.components.layouts.sidebar.custom-fields',
-        'route' => 'admin.sales.rma.custom_fields.index',
         'sort' => 5,
-        'icon' => '',
-    ], [
-        'key' => 'sales.eu_withdrawals',
-        'name' => 'admin::app.eu-withdrawal.menu.eu-withdrawals',
-        'route' => 'admin.sales.eu_withdrawals.index',
-        'sort' => 8,
         'icon' => '',
     ],
 
