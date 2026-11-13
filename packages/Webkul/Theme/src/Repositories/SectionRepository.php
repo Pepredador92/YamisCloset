@@ -6,7 +6,6 @@ use DateTimeInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Webkul\Core\Eloquent\Repository;
 use Webkul\Theme\Contracts\Section;
@@ -97,7 +96,11 @@ class SectionRepository extends Repository
 
         if (isset($data[$locale]['deleted_sliders'])) {
             foreach ($data[$locale]['deleted_sliders'] as $slider) {
-                Storage::delete(bagisto_theme_storage()->normalize($slider['image']));
+                $path = bagisto_theme_storage()->normalize($slider['image']);
+
+                if ($path && str_starts_with($path, $this->mediaDirectory($section).'/')) {
+                    bagisto_theme_storage()->disk()->delete($path);
+                }
             }
         }
 
@@ -120,7 +123,7 @@ class SectionRepository extends Repository
 
                     $encoded = image_manager()->fromUpload($image['image'])->toWebp()->toBytes();
 
-                    Storage::put($path, (string) $encoded);
+                    bagisto_theme_storage()->disk()->put($path, (string) $encoded);
                 } catch (\Exception $e) {
                     session()->flash('error', $e->getMessage());
 
@@ -425,7 +428,7 @@ class SectionRepository extends Repository
 
         $path = $this->mediaDirectory($section).'/'.Str::random(40).'.webp';
 
-        Storage::put($path, image_manager()->fromUpload($file)->toWebp()->toBytes());
+        bagisto_theme_storage()->disk()->put($path, image_manager()->fromUpload($file)->toWebp()->toBytes());
 
         return $path;
     }
@@ -447,7 +450,7 @@ class SectionRepository extends Repository
             ];
         }
 
-        $path = Storage::putFileAs(
+        $path = bagisto_theme_storage()->disk()->putFileAs(
             $this->mediaDirectory($section),
             $file,
             Str::random(40).'.'.$file->extension()
@@ -556,16 +559,13 @@ class SectionRepository extends Repository
     protected function purgeUnreferencedMedia($section, ?DateTimeInterface $keepUploadedSince = null): void
     {
         $directory = $this->mediaDirectory($section);
-
-        if (! Storage::exists($directory)) {
-            return;
-        }
+        $disk = bagisto_theme_storage()->disk();
 
         $referenced = $section->refresh()->translations
             ->map(fn ($translation) => json_encode([$translation->options, $translation->draft_options]))
             ->implode(' ');
 
-        foreach (Storage::files($directory) as $file) {
+        foreach ($disk->files($directory) as $file) {
             if (
                 str_contains($referenced, basename($file))
                 || $this->uploadedSince($file, $keepUploadedSince)
@@ -573,7 +573,7 @@ class SectionRepository extends Repository
                 continue;
             }
 
-            Storage::delete($file);
+            $disk->delete($file);
         }
     }
 
@@ -583,7 +583,7 @@ class SectionRepository extends Repository
     protected function uploadedSince(string $file, ?DateTimeInterface $moment): bool
     {
         return ! is_null($moment)
-            && Storage::lastModified($file) >= $moment->getTimestamp();
+            && bagisto_theme_storage()->disk()->lastModified($file) >= $moment->getTimestamp();
     }
 
     /**

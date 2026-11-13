@@ -2,7 +2,6 @@
 
 namespace Webkul\Theme\Observers;
 
-use Illuminate\Support\Facades\Storage;
 use Webkul\Theme\Contracts\Section;
 
 class SectionObserver
@@ -18,6 +17,6 @@ class SectionObserver
      */
     public function deleted($section)
     {
-        Storage::deleteDirectory('themes/'.$section->theme_code.'/sections/'.$section->id);
+        bagisto_theme_storage()->disk()->deleteDirectory('themes/'.$section->theme_code.'/sections/'.$section->id);
     }
 }

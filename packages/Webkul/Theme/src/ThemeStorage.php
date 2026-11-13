@@ -2,6 +2,7 @@
 
 namespace Webkul\Theme;
 
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 
@@ -16,6 +17,14 @@ class ThemeStorage
      * The prefix a stored media path carries inside authored markup.
      */
     public const MEDIA_REFERENCE = '__media__/';
+
+    /**
+     * Resolve the disk used for storefront theme media.
+     */
+    public function disk(): FilesystemAdapter
+    {
+        return Storage::disk(config('filesystems.theme'));
+    }
 
     /**
      * Resolve a stored path to the url it is served from, a local disk through the site, so an image and
@@ -34,7 +43,7 @@ class ThemeStorage
         }
 
         if (! $this->isDriverLocal()) {
-            return Storage::url($path);
+            return $this->disk()->url($path);
         }
 
         return url($this->pathOnSite($path));
@@ -54,6 +63,10 @@ class ThemeStorage
 
         if ($this->isAbsolute($path)) {
             return $path;
+        }
+
+        if (config('filesystems.theme') && ! $this->isDriverLocal()) {
+            return $this->url($path);
         }
 
         return image_url($path, $size) ?? $this->url($path);
@@ -192,7 +205,7 @@ class ThemeStorage
      */
     protected function pathOnSite(string $path): string
     {
-        $published = parse_url((string) Storage::url($path), PHP_URL_PATH);
+        $published = parse_url((string) $this->disk()->url($path), PHP_URL_PATH);
 
         if (
             ! is_string($published)
@@ -228,6 +241,6 @@ class ThemeStorage
      */
     protected function isDriverLocal(): bool
     {
-        return Storage::getAdapter() instanceof LocalFilesystemAdapter;
+        return $this->disk()->getAdapter() instanceof LocalFilesystemAdapter;
     }
 }

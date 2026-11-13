@@ -15,6 +15,8 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'public'),
 
+    'theme' => env('THEME_FILESYSTEM_DISK'),
+
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
@@ -66,6 +68,18 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
             'report' => false,
+        ],
+
+        'theme_s3' => [
+            'driver' => 's3',
+            'key' => env('THEME_S3_ACCESS_KEY_ID'),
+            'secret' => env('THEME_S3_SECRET_ACCESS_KEY'),
+            'region' => env('THEME_S3_REGION'),
+            'bucket' => env('THEME_S3_BUCKET'),
+            'url' => env('THEME_S3_URL'),
+            'endpoint' => env('THEME_S3_ENDPOINT'),
+            'use_path_style_endpoint' => true,
+            'throw' => true,
         ],
 
         'r2' => [
