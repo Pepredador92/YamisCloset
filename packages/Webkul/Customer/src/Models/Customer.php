@@ -21,6 +21,7 @@ use Webkul\Product\Models\ProductReviewProxy;
 use Webkul\Sales\Models\InvoiceProxy;
 use Webkul\Sales\Models\OrderProxy;
 use Webkul\Shop\Mail\Customer\ResetPasswordNotification;
+use Webkul\Shop\Support\PhoneNumberNormalizer;
 
 class Customer extends Authenticatable implements CustomerContract
 {
@@ -60,7 +61,17 @@ class Customer extends Authenticatable implements CustomerContract
      */
     public function setPhoneAttribute($value): void
     {
-        $this->attributes['phone'] = $value !== '' && $value !== null ? $value : null;
+        $this->attributes['phone'] = $value !== '' && $value !== null
+            ? (PhoneNumberNormalizer::normalize($value) ?? $value)
+            : null;
+    }
+
+    /**
+     * Store omitted email addresses as null so multiple phone-only accounts can coexist.
+     */
+    public function setEmailAttribute($value): void
+    {
+        $this->attributes['email'] = is_string($value) ? (trim($value) ?: null) : $value;
     }
 
     /**

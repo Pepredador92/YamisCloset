@@ -794,19 +794,11 @@ class Cart
     }
 
     /**
-     * Whether the shopper has to sign in before this cart can be checked out: a guest does when guest
-     * checkout is off, the cart has gone, or it holds a downloadable or a product that needs an account.
+     * Require an identified customer when continuing from the guest cart to checkout.
      */
     public function requiresSignInToCheckout(): bool
     {
-        if (auth()->guard('customer')->check()) {
-            return false;
-        }
-
-        return ! core()->getConfigData('sales.checkout.shopping_cart.allow_guest_checkout')
-            || ! $this->cart
-            || $this->cart->hasDownloadableItems()
-            || ! $this->cart->hasGuestCheckoutItems();
+        return ! auth()->guard('customer')->check();
     }
 
     /**

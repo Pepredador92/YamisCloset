@@ -43,7 +43,7 @@
             </h1>
 
             <p class="mt-4 text-xl text-zinc-500 max-sm:mt-0 max-sm:text-sm">
-                @lang('shop::app.customers.login-form.form-login-text')
+                @lang('storefront.phone-only')
             </p>
 
             {!! view_render_event('bagisto.shop.customers.login.before') !!}
@@ -52,25 +52,23 @@
                 <x-shop::form :action="route('shop.customer.session.create')">
                     {!! view_render_event('bagisto.shop.customers.login_form_controls.before') !!}
 
-                    <!-- Email -->
                     <x-shop::form.control-group>
                         <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.customers.login-form.email')
+                            @lang('storefront.phone')
                         </x-shop::form.control-group.label>
-
                         <x-shop::form.control-group.control
-                            type="email"
-                            class="px-6 py-4 max-md:py-3 max-sm:py-2"
-                            name="email"
-                            rules="required|email"
-                            value=""
-                            :label="trans('shop::app.customers.login-form.email')"
-                            placeholder="email@example.com"
-                            :aria-label="trans('shop::app.customers.login-form.email')"
+                            type="tel"
+                            name="phone"
+                            rules="required"
+                            :value="old('phone')"
+                            :label="trans('storefront.phone')"
+                            placeholder="+52 492 123 4567"
+                            autocomplete="username"
+                            inputmode="tel"
                             aria-required="true"
                         />
-
-                        <x-shop::form.control-group.error control-name="email" />
+                        <p class="mt-2 text-xs text-zinc-500">@lang('storefront.phone-help')</p>
+                        <x-shop::form.control-group.error control-name="phone" />
                     </x-shop::form.control-group>
 
                     <!-- Password -->
@@ -84,7 +82,7 @@
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             id="password"
                             name="password"
-                            rules="required|min:6"
+                            rules="required"
                             value=""
                             :label="trans('shop::app.customers.login-form.password')"
                             :placeholder="trans('shop::app.customers.login-form.password')"

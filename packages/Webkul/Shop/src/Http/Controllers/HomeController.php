@@ -38,6 +38,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        request()->validate(['query' => ['sometimes', 'nullable', 'string', 'max:255']]);
+
         $sections = $this->sectionRepository->getRenderable(
             core()->getCurrentChannel()->id,
             core()->getCurrentChannel()->theme

@@ -74,20 +74,13 @@ class SocialiteManager extends BaseSocialiteManager
      */
     protected function createGoogleDriver()
     {
-        $clientId = core()->getConfigData('customer.settings.social_login.google_client_id');
-        $clientSecret = core()->getConfigData('customer.settings.social_login.google_client_secret');
-        $callbackUrl = core()->getConfigData('customer.settings.social_login.google_callback_url')
-            ?: route('customer.social_login.callback', ['provider' => 'google']);
-
-        if ($clientId || $clientSecret || $callbackUrl) {
-            $config = [
-                'client_id' => $clientId,
-                'client_secret' => $clientSecret,
-                'redirect' => $callbackUrl,
-            ];
-        } else {
-            $config = $this->config->get('services.google');
-        }
+        $config = [
+            'client_id' => core()->getConfigData('customer.settings.social_login.google_client_id') ?: config('services.google.client_id'),
+            'client_secret' => core()->getConfigData('customer.settings.social_login.google_client_secret') ?: config('services.google.client_secret'),
+            'redirect' => core()->getConfigData('customer.settings.social_login.google_callback_url')
+                ?: config('services.google.redirect')
+                ?: route('customer.social_login.callback', ['provider' => 'google']),
+        ];
 
         return $this->buildProvider(
             GoogleProvider::class, $config

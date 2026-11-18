@@ -1764,12 +1764,6 @@ return [
                 'type' => 'boolean',
                 'default' => 1,
             ], [
-                'name' => 'allow_guest_checkout',
-                'title' => 'admin::app.configuration.index.sales.checkout.shopping-cart.guest-checkout',
-                'info' => 'admin::app.configuration.index.sales.checkout.shopping-cart.guest-checkout-info',
-                'type' => 'boolean',
-                'default' => 1,
-            ], [
                 'name' => 'cross_sell',
                 'title' => 'admin::app.configuration.index.sales.checkout.shopping-cart.cross-sell',
                 'info' => 'admin::app.configuration.index.sales.checkout.shopping-cart.cross-sell-info',
@@ -2850,32 +2844,6 @@ return [
         'sort' => 4,
         'fields' => [
             [
-                'name' => 'enable_facebook',
-                'title' => 'admin::app.configuration.index.customer.settings.social-login.facebook.enable-facebook',
-                'type' => 'boolean',
-                'channel_based' => true,
-            ], [
-                'name' => 'facebook_client_id',
-                'title' => 'admin::app.configuration.index.customer.settings.social-login.facebook.client-id.title',
-                'info' => 'admin::app.configuration.index.customer.settings.social-login.facebook.client-id.title-info',
-                'type' => 'text',
-                'depends' => 'enable_facebook:1',
-            ], [
-                'name' => 'facebook_client_secret',
-                'title' => 'admin::app.configuration.index.customer.settings.social-login.facebook.client-secret.title',
-                'info' => 'admin::app.configuration.index.customer.settings.social-login.facebook.client-secret.title-info',
-                'type' => 'text',
-                'depends' => 'enable_facebook:1',
-            ], [
-                'name' => 'facebook_callback_url',
-                'title' => 'admin::app.configuration.index.customer.settings.social-login.facebook.redirect.title',
-                'info' => 'admin::app.configuration.index.customer.settings.social-login.facebook.redirect.title-info',
-                'type' => 'text',
-                'validation' => 'url',
-                'depends' => 'enable_facebook:1',
-                'default' => config('app.url').'/customer/social-login/facebook/callback',
-                'placeholder' => config('app.url').'/customer/social-login/facebook/callback',
-            ], [
                 'name' => 'enable_google',
                 'title' => 'admin::app.configuration.index.customer.settings.social-login.google.enable-google',
                 'type' => 'boolean',

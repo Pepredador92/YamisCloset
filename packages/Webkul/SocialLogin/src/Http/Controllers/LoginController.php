@@ -19,7 +19,6 @@ class LoginController extends Controller
      */
     public const PROVIDERS = [
         'google' => 'enable_google',
-        'facebook' => 'enable_facebook',
     ];
 
     /**
@@ -40,9 +39,11 @@ class LoginController extends Controller
         $this->abortUnlessEnabled($provider);
 
         try {
-            return Socialite::driver($provider)->redirect('shop.customers.account.profile.index');
+            return Socialite::driver($provider)->redirect();
         } catch (\Exception $e) {
-            session()->flash('error', $e->getMessage());
+            report($e);
+
+            session()->flash('error', trans('storefront.google-unavailable'));
 
             return redirect()->route('shop.customer.session.index');
         }
@@ -64,6 +65,15 @@ class LoginController extends Controller
             return redirect()->route('shop.customer.session.index');
         }
 
+        if (
+            ! $user->getEmail()
+            || ! filter_var($user->user['email_verified'] ?? $user->user['verified_email'] ?? false, FILTER_VALIDATE_BOOLEAN)
+        ) {
+            session()->flash('error', trans('storefront.google-unavailable'));
+
+            return redirect()->route('shop.customer.session.index');
+        }
+
         $channelId = core()->getCurrentChannel()->id;
 
         $customer = $this->customerSocialAccountRepository->findCustomerByProvider(
@@ -72,9 +82,31 @@ class LoginController extends Controller
             $channelId
         );
 
+        if ($signedIn = auth()->guard('customer')->user()) {
+            if (
+                ($customer && $customer->id !== $signedIn->id)
+                || ($signedIn->email && strcasecmp($signedIn->email, $user->getEmail()) !== 0)
+                || (! $signedIn->email && $this->customerSocialAccountRepository->emailIsTaken($user->getEmail(), $channelId))
+            ) {
+                session()->flash('error', trans('storefront.google-link-conflict'));
+
+                return redirect()->route('shop.customers.account.profile.index');
+            }
+
+            if (! $customer) {
+                $this->customerSocialAccountRepository->create([
+                    'customer_id' => $signedIn->id,
+                    'provider_id' => (string) $user->getId(),
+                    'provider_name' => $provider,
+                ]);
+            }
+
+            return redirect()->route('shop.customers.account.profile.index');
+        }
+
         if (! $customer) {
             if ($this->customerSocialAccountRepository->emailIsTaken($user->getEmail(), $channelId)) {
-                session()->flash('error', trans('shop::app.customers.login-form.social-account-exists'));
+                session()->flash('error', trans('storefront.google-link-conflict'));
 
                 return redirect()->route('shop.customer.session.index');
             }
@@ -101,7 +133,13 @@ class LoginController extends Controller
 
         auth()->guard('customer')->login($customer);
 
+        session()->regenerate();
+
         Event::dispatch('customer.after.login', $customer);
+
+        if (! $customer->phone) {
+            return redirect()->route('shop.customers.account.profile.edit');
+        }
 
         if ($intended = session()->pull('shop.url.intended')) {
             return redirect()->to($intended);
@@ -111,13 +149,23 @@ class LoginController extends Controller
     }
 
     /**
+     * Whether both Google OAuth credentials have been configured for this channel.
+     */
+    public static function googleIsConfigured(): bool
+    {
+        return (bool) core()->getConfigData('customer.settings.social_login.enable_google')
+            && filled(core()->getConfigData('customer.settings.social_login.google_client_id') ?: config('services.google.client_id'))
+            && filled(core()->getConfigData('customer.settings.social_login.google_client_secret') ?: config('services.google.client_secret'));
+    }
+
+    /**
      * Abort unless the provider is one a customer may sign in with and the store has enabled it.
      */
     protected function abortUnlessEnabled(string $provider): void
     {
         if (
             ! isset(self::PROVIDERS[$provider])
-            || ! core()->getConfigData('customer.settings.social_login.'.self::PROVIDERS[$provider])
+            || ! self::googleIsConfigured()
         ) {
             abort(404);
         }

@@ -85,6 +85,10 @@ class OnepageController extends APIController
      */
     public function storeShippingMethod()
     {
+        if (Cart::requiresSignInToCheckout()) {
+            return $this->redirectToSignIn();
+        }
+
         $validatedData = $this->validate(request(), [
             'shipping_method' => 'required',
         ]);
@@ -111,6 +115,10 @@ class OnepageController extends APIController
      */
     public function storePaymentMethod()
     {
+        if (Cart::requiresSignInToCheckout()) {
+            return $this->redirectToSignIn();
+        }
+
         $validatedData = $this->validate(request(), [
             'payment' => 'required',
         ]);

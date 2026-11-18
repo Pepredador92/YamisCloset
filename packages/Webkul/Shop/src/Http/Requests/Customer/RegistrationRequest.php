@@ -20,6 +20,9 @@ class RegistrationRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Normalize contact data and use the identity returned by Google.
+     */
     protected function prepareForValidation(): void
     {
         $socialRegistration = session('social_registration');
@@ -39,9 +42,11 @@ class RegistrationRequest extends FormRequest
         }
 
         $this->merge([
+            'last_name' => $this->input('last_name') ?: '',
+            'email' => is_string($this->input('email')) ? (trim($this->input('email')) ?: null) : $this->input('email'),
             'phone' => PhoneNumberNormalizer::normalize(
                 $this->input('phone_number'),
-                $this->input('phone_country')
+                is_string($this->input('phone_country')) ? $this->input('phone_country') : null
             ),
             'has_whatsapp' => $this->boolean('has_whatsapp'),
         ]);
@@ -58,8 +63,8 @@ class RegistrationRequest extends FormRequest
 
         $rules = [
             'first_name' => 'string|required|max:255',
-            'last_name' => 'string|required|max:255',
-            'email' => 'email|required|max:255|unique:customers,email,NULL,id,channel_id,'.core()->getCurrentChannel()->id,
+            'last_name' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255|unique:customers,email,NULL,id,channel_id,'.core()->getCurrentChannel()->id,
             'phone_country' => ['required', 'string', Rule::in(PhoneNumberUtil::getInstance()->getSupportedRegions())],
             'phone_number' => [
                 'required',
@@ -71,9 +76,9 @@ class RegistrationRequest extends FormRequest
                     }
                 },
             ],
-            'phone' => ['nullable', 'string', 'regex:/^\\+[1-9]\\d{7,14}$/', 'unique:customers,phone'],
+            'phone' => ['required', 'string', 'regex:/^\\+[1-9]\\d{7,14}$/', 'unique:customers,phone'],
             'has_whatsapp' => ['sometimes', 'boolean'],
-            'password' => $socialRegistration ? 'nullable|confirmed|min:6' : 'confirmed|min:6|required',
+            'password' => $socialRegistration ? 'nullable|string|confirmed|min:8|max:255' : 'required|string|confirmed|min:8|max:255',
         ];
 
         return Captcha::getValidations($rules);
@@ -91,6 +96,9 @@ class RegistrationRequest extends FormRequest
         ]);
     }
 
+    /**
+     * Describe the normalized phone fields in validation errors.
+     */
     public function attributes(): array
     {
         return [

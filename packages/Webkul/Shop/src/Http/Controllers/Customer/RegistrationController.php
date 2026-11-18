@@ -4,6 +4,7 @@ namespace Webkul\Shop\Http\Controllers\Customer;
 
 use Cookie;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -83,7 +84,7 @@ class RegistrationController extends Controller
         $customerGroup = core()->getConfigData('customer.settings.create_new_account_options.default_group');
 
         $socialRegistration = session('social_registration');
-        $subscription = $this->subscriptionRepository->findOneWhere(['email' => request()->input('email')]);
+        $subscription = request()->filled('email') ? $this->subscriptionRepository->findOneWhere(['email' => request()->input('email')]) : null;
 
         $data = array_merge($registrationRequest->only([
             'first_name',
@@ -91,12 +92,12 @@ class RegistrationController extends Controller
             'email',
             'phone',
             'has_whatsapp',
-            'password_confirmation',
             'is_subscribed',
         ]), [
             'password' => $socialRegistration ? null : bcrypt(request()->input('password')),
             'api_token' => Str::random(80),
-            'is_verified' => ! core()->getConfigData('customer.settings.email.verification'),
+            'is_verified' => true,
+            'status' => true,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => $customerGroup])->id,
             'channel_id' => core()->getCurrentChannel()->id,
             'token' => Str::random(64),
@@ -105,17 +106,23 @@ class RegistrationController extends Controller
 
         Event::dispatch('customer.registration.before');
 
-        $customer = $this->customerRepository->create($data);
+        $data['last_name'] = $data['last_name'] ?: '';
 
-        if ($socialRegistration) {
-            $this->customerSocialAccountRepository->create([
-                'customer_id' => $customer->id,
-                'provider_id' => $socialRegistration['provider_id'],
-                'provider_name' => $socialRegistration['provider'],
-            ]);
+        $customer = DB::transaction(function () use ($data, $socialRegistration) {
+            $customer = $this->customerRepository->create($data);
 
-            session()->forget('social_registration');
-        }
+            if ($socialRegistration) {
+                $this->customerSocialAccountRepository->create([
+                    'customer_id' => $customer->id,
+                    'provider_id' => $socialRegistration['provider_id'],
+                    'provider_name' => $socialRegistration['provider'],
+                ]);
+            }
+
+            return $customer;
+        });
+
+        session()->forget('social_registration');
 
         if ($subscription) {
             $this->subscriptionRepository->update([
@@ -124,7 +131,8 @@ class RegistrationController extends Controller
         }
 
         if (
-            ! empty($data['is_subscribed'])
+            ! empty($data['email'])
+            && ! empty($data['is_subscribed'])
             && ! $subscription
         ) {
             Event::dispatch('customer.subscription.before');
@@ -144,19 +152,12 @@ class RegistrationController extends Controller
 
         Event::dispatch('customer.registration.after', $customer);
 
-        if (core()->getConfigData('customer.settings.email.verification')) {
-            session()->flash('success', trans('shop::app.customers.signup-form.success-verify'));
-        } else {
-            session()->flash('success', trans('shop::app.customers.signup-form.success'));
-        }
+        auth()->guard('customer')->login($customer);
+        session()->regenerate();
 
-        if ($socialRegistration) {
-            auth()->guard('customer')->login($customer);
+        Event::dispatch('customer.after.login', $customer);
 
-            return redirect()->route('shop.customers.account.profile.index');
-        }
-
-        return redirect()->route('shop.customer.session.index');
+        return redirect()->to(session()->pull('shop.url.intended', route('shop.home.index')));
     }
 
     /**

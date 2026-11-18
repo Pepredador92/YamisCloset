@@ -65,7 +65,7 @@
                     <!-- First Name -->
                     <x-shop::form.control-group>
                         <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.customers.signup-form.first-name')
+                            @lang('storefront.name')
                         </x-shop::form.control-group.label>
 
                         <x-shop::form.control-group.control
@@ -74,9 +74,9 @@
                             name="first_name"
                             rules="required"
                             :value="old('first_name', $socialRegistration['first_name'] ?? '')"
-                            :label="trans('shop::app.customers.signup-form.first-name')"
-                            :placeholder="trans('shop::app.customers.signup-form.first-name')"
-                            :aria-label="trans('shop::app.customers.signup-form.first-name')"
+                            :label="trans('storefront.name')"
+                            :placeholder="trans('storefront.name')"
+                            :aria-label="trans('storefront.name')"
                             aria-required="true"
                         />
 
@@ -84,29 +84,6 @@
                     </x-shop::form.control-group>
 
                     {!! view_render_event('bagisto.shop.customers.signup_form.first_name.after') !!}
-
-                    <!-- Last Name -->
-                    <x-shop::form.control-group>
-                        <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.customers.signup-form.last-name')
-                        </x-shop::form.control-group.label>
-
-                        <x-shop::form.control-group.control
-                            type="text"
-                            class="px-6 py-4 max-md:py-3 max-sm:py-2"
-                            name="last_name"
-                            rules="required"
-                            :value="old('last_name', $socialRegistration['last_name'] ?? '')"
-                            :label="trans('shop::app.customers.signup-form.last-name')"
-                            :placeholder="trans('shop::app.customers.signup-form.last-name')"
-                            :aria-label="trans('shop::app.customers.signup-form.last-name')"
-                            aria-required="true"
-                        />
-
-                        <x-shop::form.control-group.error control-name="last_name" />
-                    </x-shop::form.control-group>
-
-                    {!! view_render_event('bagisto.shop.customers.signup_form.last_name.after') !!}
 
                     <!-- Phone Number -->
                     <x-shop::form.control-group>
@@ -174,21 +151,21 @@
 
                     <!-- Email -->
                     <x-shop::form.control-group>
-                        <x-shop::form.control-group.label class="required">
-                            @lang('shop::app.customers.signup-form.email')
+                        <x-shop::form.control-group.label>
+                            @lang('storefront.email')
                         </x-shop::form.control-group.label>
 
                         <x-shop::form.control-group.control
                             type="email"
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             name="email"
-                            rules="required|email"
+                            rules="email"
                             :value="old('email', $socialRegistration['email'] ?? '')"
-                            :label="trans('shop::app.customers.signup-form.email')"
+                            :label="trans('storefront.email')"
                             placeholder="email@example.com"
-                            :aria-label="trans('shop::app.customers.signup-form.email')"
-                            aria-required="true"
-                            @if ($socialRegistration && $socialRegistration['email']) readonly @endif
+                            :aria-label="trans('storefront.email')"
+
+                            :readonly="! empty($socialRegistration['email'])"
                         />
 
                         <x-shop::form.control-group.error control-name="email" />
@@ -207,8 +184,8 @@
                             type="password"
                             class="px-6 py-4 max-md:py-3 max-sm:py-2"
                             name="password"
-                            rules="required|min:6"
-                            :value="old('password')"
+                            rules="required|min:8"
+                            value=""
                             :label="trans('shop::app.customers.signup-form.password')"
                             :placeholder="trans('shop::app.customers.signup-form.password')"
                             ref="password"

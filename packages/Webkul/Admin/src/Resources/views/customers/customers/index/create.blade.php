@@ -42,7 +42,7 @@
 
                             <!-- Last Name -->
                             <x-admin::form.control-group class="mb-2.5 w-full">
-                                <x-admin::form.control-group.label class="required">
+                                <x-admin::form.control-group.label>
                                     @lang('admin::app.customers.customers.index.create.last-name')
                                 </x-admin::form.control-group.label>
 
@@ -50,7 +50,7 @@
                                     type="text"
                                     id="last_name"
                                     name="last_name"
-                                    rules="required"
+
                                     :label="trans('admin::app.customers.customers.index.create.last-name')"
                                     :placeholder="trans('admin::app.customers.customers.index.create.last-name')"
                                 />
@@ -61,7 +61,7 @@
 
                         <!-- Email -->
                         <x-admin::form.control-group>
-                            <x-admin::form.control-group.label class="required">
+                            <x-admin::form.control-group.label>
                                 @lang('admin::app.customers.customers.index.create.email')
                             </x-admin::form.control-group.label>
 
@@ -69,7 +69,7 @@
                                 type="email"
                                 id="email"
                                 name="email"
-                                rules="required|email"
+                                rules="email"
                                 :label="trans('admin::app.customers.customers.index.create.email')"
                                 placeholder="email@example.com"
                             />
@@ -87,7 +87,7 @@
                                 type="text"
                                 id="phone"
                                 name="phone"
-                                rules="phone"
+                                rules="required|phone"
                                 :label="trans('admin::app.customers.customers.index.create.phone')"
                                 :placeholder="trans('admin::app.customers.customers.index.create.phone')"
                             />
@@ -113,7 +113,7 @@
 
                         <!-- Gender -->
                         <x-admin::form.control-group>
-                            <x-admin::form.control-group.label class="required">
+                            <x-admin::form.control-group.label>
                                 @lang('admin::app.customers.customers.index.create.gender')
                             </x-admin::form.control-group.label>
 
@@ -121,7 +121,7 @@
                                 type="select"
                                 id="gender"
                                 name="gender"
-                                rules="required"
+
                                 :label="trans('admin::app.customers.customers.index.create.gender')"
                             >
                                 <option value="">
@@ -159,11 +159,11 @@
                                     :label="trans('admin::app.customers.customers.index.create.channel')"
                                     ::value="channels[0]?.id"
                                 >
-                                    <option 
-                                        v-for="channel in channels" 
+                                    <option
+                                        v-for="channel in channels"
                                         :value="channel.id"
                                         selected
-                                    > 
+                                    >
                                         @{{ channel.name }} (@{{ channel.code }})
                                     </option>
                                 </x-admin::form.control-group.control>
@@ -184,12 +184,12 @@
                                     :label="trans('admin::app.customers.customers.index.create.customer-group')"
                                     ::value="groups[0]?.id"
                                 >
-                                    <option 
-                                        v-for="group in groups" 
+                                    <option
+                                        v-for="group in groups"
                                         :value="group.id"
                                         selected
-                                    > 
-                                        @{{ group.name }} 
+                                    >
+                                        @{{ group.name }}
                                     </option>
                                 </x-admin::form.control-group.control>
 
@@ -198,6 +198,21 @@
                         </div>
 
                         {!! view_render_event('bagisto.admin.customers.create.after') !!}
+
+                        <label class="mb-4 flex items-center gap-2 text-sm">
+                            <input type="checkbox" name="has_whatsapp" value="1">
+                            @lang('shop::app.customers.signup-form.has-whatsapp')
+                        </label>
+                        <x-admin::form.control-group>
+                            <x-admin::form.control-group.label>@lang('shop::app.customers.signup-form.password')</x-admin::form.control-group.label>
+                            <x-admin::form.control-group.control type="password" name="password" value="" autocomplete="new-password" rules="min:8" :label="trans('shop::app.customers.signup-form.password')" />
+                            <x-admin::form.control-group.error control-name="password" />
+                        </x-admin::form.control-group>
+                        <x-admin::form.control-group>
+                            <x-admin::form.control-group.label>@lang('shop::app.customers.signup-form.confirm-pass')</x-admin::form.control-group.label>
+                            <x-admin::form.control-group.control type="password" name="password_confirmation" value="" autocomplete="new-password" :label="trans('shop::app.customers.signup-form.confirm-pass')" />
+                            <x-admin::form.control-group.error control-name="password_confirmation" />
+                        </x-admin::form.control-group>
                     </x-slot>
 
                     <!-- Modal Footer -->
@@ -250,7 +265,7 @@
 
                             this.isLoading = false;
                         })
-                        .catch(error => {                            
+                        .catch(error => {
                             this.isLoading = false;
 
                             if (error.response.status == 422) {

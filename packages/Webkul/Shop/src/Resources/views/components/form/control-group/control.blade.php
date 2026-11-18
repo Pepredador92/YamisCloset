@@ -6,6 +6,7 @@
 @switch($type)
     @case('hidden')
     @case('text')
+    @case('tel')
     @case('email')
     @case('number')
         <v-field

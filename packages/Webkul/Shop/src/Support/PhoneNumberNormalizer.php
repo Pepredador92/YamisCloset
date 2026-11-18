@@ -11,9 +11,17 @@ class PhoneNumberNormalizer
     /**
      * Return a valid phone number in E.164 format, or null when it cannot be parsed.
      */
-    public static function normalize(?string $number, ?string $region): ?string
+    public static function normalize(mixed $number, ?string $region = 'MX'): ?string
     {
+        if (! is_string($number) && ! is_int($number)) {
+            return null;
+        }
+
         $number = trim((string) $number);
+
+        if (preg_match('/[^0-9+().\s-]/u', $number)) {
+            return null;
+        }
 
         if ($number === '' || ! $region) {
             return null;

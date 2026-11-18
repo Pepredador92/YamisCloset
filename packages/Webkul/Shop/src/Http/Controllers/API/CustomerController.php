@@ -28,7 +28,7 @@ class CustomerController extends APIController
      */
     public function username(): string
     {
-        return 'email';
+        return 'phone';
     }
 
     /**
@@ -38,7 +38,7 @@ class CustomerController extends APIController
      */
     public function login(LoginRequest $request)
     {
-        $credentials = array_merge($request->only(['email', 'password']), [
+        $credentials = array_merge($request->only(['phone', 'password']), [
             'channel_id' => core()->getCurrentChannel()->id,
         ]);
 
@@ -56,6 +56,8 @@ class CustomerController extends APIController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        session()->regenerate();
+
         $this->clearLoginAttempts($request);
 
         if (! auth()->guard('customer')->user()->status) {
@@ -66,10 +68,10 @@ class CustomerController extends APIController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if (! auth()->guard('customer')->user()->is_verified) {
+        if (auth()->guard('customer')->user()->email && ! auth()->guard('customer')->user()->is_verified) {
             Cookie::queue(Cookie::make('enable-resend', 'true', 1));
 
-            Cookie::queue(Cookie::make('email-for-resend', $request->input('email'), 1));
+            Cookie::queue(Cookie::make('email-for-resend', auth()->guard('customer')->user()->email, 1));
 
             auth()->guard('customer')->logout();
 
@@ -81,7 +83,7 @@ class CustomerController extends APIController
         /**
          * Event passed to prepare cart after login.
          */
-        Event::dispatch('customer.after.login', auth()->guard()->user());
+        Event::dispatch('customer.after.login', auth()->guard('customer')->user());
 
         return response()->json([]);
     }

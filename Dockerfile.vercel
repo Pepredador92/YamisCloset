@@ -12,7 +12,11 @@ WORKDIR /app
 COPY . .
 
 RUN npm install --no-audit --no-fund \
-    && npm run build
+    && npm run build \
+    && npm --prefix packages/Webkul/Shop install --no-audit --no-fund \
+    && npm --prefix packages/Webkul/Shop run build \
+    && npm --prefix packages/Webkul/Admin install --no-audit --no-fund \
+    && npm --prefix packages/Webkul/Admin run build
 
 FROM base AS dependencies
 
@@ -39,6 +43,10 @@ FROM base AS runtime
 COPY --from=dependencies --chown=www-data:www-data /app /app
 
 COPY --from=frontend --chown=www-data:www-data /app/public/build /app/public/build
+
+COPY --from=frontend --chown=www-data:www-data /app/public/themes/shop/default/build /app/public/themes/shop/default/build
+
+COPY --from=frontend --chown=www-data:www-data /app/public/themes/admin/default/build /app/public/themes/admin/default/build
 
 COPY --chown=www-data:www-data Caddyfile /etc/frankenphp/Caddyfile
 

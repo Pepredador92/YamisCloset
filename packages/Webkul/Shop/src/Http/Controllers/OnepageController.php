@@ -24,10 +24,7 @@ class OnepageController extends Controller
 
         Event::dispatch('checkout.load.index');
 
-        if (
-            ! auth()->guard('customer')->check()
-            && ! core()->getConfigData('sales.checkout.shopping_cart.allow_guest_checkout')
-        ) {
+        if (! auth()->guard('customer')->check()) {
             return $this->redirectToSignIn();
         }
 

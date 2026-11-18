@@ -20,7 +20,11 @@ class Customer extends Base
      */
     public function afterCreated($customer)
     {
-        if (core()->getConfigData('customer.settings.email.verification')) {
+        if (! $customer->email) {
+            return;
+        }
+
+        if (! $customer->is_verified && core()->getConfigData('customer.settings.email.verification')) {
             try {
                 if (! core()->getConfigData('customer.settings.email.verification')) {
                     return;
@@ -55,6 +59,10 @@ class Customer extends Base
      */
     public function afterPasswordUpdated($customer)
     {
+        if (! $customer->email) {
+            return;
+        }
+
         try {
             Mail::queue(new UpdatePasswordNotification($customer));
         } catch (\Exception $e) {
@@ -70,6 +78,10 @@ class Customer extends Base
      */
     public function afterSubscribed($customer)
     {
+        if (! $customer->email) {
+            return;
+        }
+
         try {
             Mail::queue(new SubscriptionNotification($customer));
         } catch (\Exception $e) {

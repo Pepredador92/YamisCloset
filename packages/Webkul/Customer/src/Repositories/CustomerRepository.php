@@ -88,7 +88,11 @@ class CustomerRepository extends Repository
      */
     public function syncNewRegisteredCustomerInformation($customer)
     {
-        OrderProxy::query()->where('customer_email', $customer->email)->update([
+        if (! $customer->email) {
+            return;
+        }
+
+        OrderProxy::query()->where('is_guest', 1)->where('customer_email', $customer->email)->update([
             'is_guest' => 0,
             'customer_id' => $customer->id,
             'customer_type' => Customer::class,

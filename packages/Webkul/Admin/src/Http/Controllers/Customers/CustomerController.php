@@ -17,10 +17,10 @@ use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Admin\Http\Requests\MassDestroyRequest;
 use Webkul\Admin\Http\Requests\MassUpdateRequest;
 use Webkul\Admin\Mail\Customer\NewCustomerNotification;
-use Webkul\Core\Rules\PhoneNumber;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\Customer\Repositories\CustomerNoteRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
+use Webkul\Shop\Support\PhoneNumberNormalizer;
 
 class CustomerController extends Controller
 {
@@ -78,23 +78,32 @@ class CustomerController extends Controller
      */
     public function store(): JsonResponse
     {
-        $this->validate(request(), [
-            'first_name' => 'string|required|max:255',
-            'last_name' => 'string|required|max:255',
-            'gender' => 'required',
-            'channel_id' => 'required|integer',
-            'email' => 'required|max:255|unique:customers,email,NULL,id,channel_id,'.request('channel_id'),
-            'date_of_birth' => 'date|before:today',
-            'phone' => ['unique:customers,phone', new PhoneNumber, 'max:255'],
+        request()->merge([
+            'phone' => PhoneNumberNormalizer::normalize(request('phone')),
+            'last_name' => request('last_name') ?: '',
+            'has_whatsapp' => request()->boolean('has_whatsapp'),
         ]);
 
-        $password = Str::password(16);
+        $this->validate(request(), [
+            'first_name' => 'string|required|max:255',
+            'last_name' => 'nullable|string|max:255',
+            'gender' => 'nullable|in:Other,Male,Female',
+            'channel_id' => 'required|integer',
+            'email' => 'nullable|email|max:255|unique:customers,email,NULL,id,channel_id,'.request('channel_id'),
+            'date_of_birth' => 'nullable|date|before:today',
+            'phone' => ['required', 'unique:customers,phone', 'regex:/^\+[1-9]\d{7,14}$/'],
+            'has_whatsapp' => ['boolean'],
+            'password' => ['required_without:email', 'nullable', 'string', 'confirmed', 'min:8', 'max:255'],
+        ]);
+
+        $password = request('password') ?: Str::password(16);
 
         Event::dispatch('customer.registration.before');
 
         $data = array_merge([
             'password' => bcrypt($password),
             'is_verified' => 1,
+            'last_name' => '',
         ], request()->only([
             'first_name',
             'last_name',
@@ -102,15 +111,18 @@ class CustomerController extends Controller
             'email',
             'date_of_birth',
             'phone',
+            'has_whatsapp',
             'customer_group_id',
             'channel_id',
         ]));
+
+        $data['last_name'] = $data['last_name'] ?: '';
 
         Event::dispatch('customer.create.before');
 
         $customer = $this->customerRepository->create($data);
 
-        if (core()->getConfigData('emails.general.notifications.emails.general.notifications.customer_account_credentials')) {
+        if ($customer->email && core()->getConfigData('emails.general.notifications.emails.general.notifications.customer_account_credentials')) {
             try {
                 Mail::queue(new NewCustomerNotification($customer, $password));
             } catch (\Exception $e) {
@@ -137,13 +149,21 @@ class CustomerController extends Controller
     {
         $customer = $this->customerRepository->findOrFail($id);
 
+        request()->merge([
+            'phone' => PhoneNumberNormalizer::normalize(request('phone')),
+            'last_name' => request('last_name') ?: '',
+            'has_whatsapp' => request()->boolean('has_whatsapp'),
+        ]);
+
         $this->validate(request(), [
             'first_name' => 'string|required|max:255',
-            'last_name' => 'string|required|max:255',
-            'gender' => 'required',
-            'email' => 'required|max:255|unique:customers,email,'.$id.',id,channel_id,'.$customer->channel_id,
-            'date_of_birth' => 'date|before:today',
-            'phone' => ['unique:customers,phone,'.$id, new PhoneNumber, 'max:255'],
+            'last_name' => 'nullable|string|max:255',
+            'gender' => 'nullable|in:Other,Male,Female',
+            'email' => 'nullable|email|max:255|unique:customers,email,'.$id.',id,channel_id,'.$customer->channel_id,
+            'date_of_birth' => 'nullable|date|before:today',
+            'phone' => ['required', 'unique:customers,phone,'.$id, 'regex:/^\+[1-9]\d{7,14}$/'],
+            'has_whatsapp' => ['boolean'],
+            'password' => ['nullable', 'string', 'confirmed', 'min:8', 'max:255'],
         ]);
 
         $data = request()->only([
@@ -153,10 +173,17 @@ class CustomerController extends Controller
             'email',
             'date_of_birth',
             'phone',
+            'has_whatsapp',
             'customer_group_id',
             'status',
             'is_suspended',
         ]);
+
+        $data['last_name'] = $data['last_name'] ?: '';
+
+        if (request()->filled('password')) {
+            $data['password'] = bcrypt(request('password'));
+        }
 
         Event::dispatch('customer.update.before', $id);
 

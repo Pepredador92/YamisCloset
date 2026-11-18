@@ -1,7 +1,7 @@
 <?php
-    $searchTitle = $suggestion ?? $query;
-    $title = $searchTitle ? trans('shop::app.search.title', ['query' => $searchTitle]) : trans('shop::app.search.results');
-    $searchInstead = $suggestion ? $query : null;
+$searchTitle = $suggestion ?? $query;
+$title = ($home ?? false) ? config('app.name') : ($searchTitle ? trans('shop::app.search.title', ['query' => $searchTitle]) : trans('shop::app.search.results'));
+$searchInstead = $suggestion ? $query : null;
 ?>
 <!-- SEO Meta Content -->
 @push('meta')
@@ -22,6 +22,19 @@
         {{ $title }}
     </x-slot>
 
+    @if ($home ?? false)
+        @foreach ($sections->where('type', \Webkul\Theme\Enums\SectionTypeEnum::IMAGE_CAROUSEL->value) as $section)
+            <x-shop::carousel :options="$section->getTypeInstance()?->sanitize((array) $section->options) ?? $section->options" />
+        @endforeach
+
+        <nav class="container mt-6 flex flex-wrap gap-3 px-15 max-lg:px-8 max-sm:px-4" aria-label="{{ trans('storefront.categories') }}">
+            <a href="{{ route('shop.home.index') }}" class="secondary-button">{{ trans('storefront.all-products') }}</a>
+            @foreach ($categories as $homeCategory)
+                <a href="{{ url($homeCategory->slug) }}" class="secondary-button">{{ $homeCategory->name }}</a>
+            @endforeach
+        </nav>
+    @endif
+
     <div class="container px-15 max-lg:px-8 max-sm:px-4">
         @if (request()->has('image-search'))
             @include('shop::search.images.results')
@@ -29,7 +42,7 @@
 
         <div class="mt-8 flex items-center justify-between max-md:mt-5">
             <h2 class="break-all text-2xl font-medium max-sm:text-base">
-                <span v-text="'{{ preg_replace('/[,\\"\\\']+/', '', $title) }}'" ></span>
+                <span>{{ ($home ?? false) ? trans('storefront.catalog') : $title }}</span>
             </h2>
         </div>
 

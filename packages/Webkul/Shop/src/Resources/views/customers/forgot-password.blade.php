@@ -51,7 +51,9 @@
             {!! view_render_event('bagisto.shop.customers.forget_password.before') !!}
 
             <div class="mt-14 rounded-sm max-sm:mt-8">
-                <x-shop::form :action="route('shop.customers.forgot_password.store')">
+                <p class="mb-4 text-sm text-zinc-600">@lang('storefront.recovery-help')</p>
+
+            <x-shop::form :action="route('shop.customers.forgot_password.store')">
                     {!! view_render_event('bagisto.shop.customers.forget_password_form_controls.before') !!}
 
                     <!-- Email -->

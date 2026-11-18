@@ -29,7 +29,7 @@
                 @lang('shop::app.customers.account.profile.edit.edit-profile')
             </h2>
         </div>
-    
+
         {!! view_render_event('bagisto.shop.customers.account.profile.edit.before', ['customer' => $customer]) !!}
 
         <!-- Profile Edit Form -->
@@ -38,7 +38,7 @@
             enctype="multipart/form-data"
         >
             {!! view_render_event('bagisto.shop.customers.account.profile.edit_form_controls.before', ['customer' => $customer]) !!}
-    
+
             <!-- Image -->
             <x-shop::form.control-group class="mt-4">
                 <x-shop::form.control-group.control
@@ -78,14 +78,14 @@
 
             <!-- Last Name -->
             <x-shop::form.control-group>
-                <x-shop::form.control-group.label class="required">
+                <x-shop::form.control-group.label>
                     @lang('shop::app.customers.account.profile.edit.last-name')
                 </x-shop::form.control-group.label>
 
                 <x-shop::form.control-group.control
                     type="text"
                     name="last_name"
-                    rules="required"
+
                     :value="old('last_name') ?? $customer->last_name"
                     :label="trans('shop::app.customers.account.profile.edit.last-name')"
                     :placeholder="trans('shop::app.customers.account.profile.edit.last-name')"
@@ -98,14 +98,14 @@
 
             <!-- Email -->
             <x-shop::form.control-group>
-                <x-shop::form.control-group.label class="required">
+                <x-shop::form.control-group.label>
                     @lang('shop::app.customers.account.profile.edit.email')
                 </x-shop::form.control-group.label>
 
                 <x-shop::form.control-group.control
                     type="email"
                     name="email"
-                    rules="required|email"
+                    rules="email"
                     :value="old('email') ?? $customer->email"
                     :label="trans('shop::app.customers.account.profile.edit.email')"
                     :placeholder="trans('shop::app.customers.account.profile.edit.email')"
@@ -134,11 +134,19 @@
                 <x-shop::form.control-group.error control-name="phone" />
             </x-shop::form.control-group>
 
+            <label class="mb-5 flex items-center gap-2 text-sm">
+                <input type="checkbox" name="has_whatsapp" value="1" @checked(old('has_whatsapp', $customer->has_whatsapp))>
+                @lang('shop::app.customers.signup-form.has-whatsapp')
+            </label>
+            @if (\Webkul\SocialLogin\Http\Controllers\LoginController::googleIsConfigured())
+                <a href="{{ route('customer.social_login.index', 'google') }}" class="secondary-button mb-5">@lang('storefront.google')</a>
+            @endif
+
             {!! view_render_event('bagisto.shop.customers.account.profile.edit_form_controls.phone.after') !!}
 
             <!-- Gender -->
             <x-shop::form.control-group>
-                <x-shop::form.control-group.label class="required">
+                <x-shop::form.control-group.label>
                     @lang('shop::app.customers.account.profile.edit.gender')
                 </x-shop::form.control-group.label>
 
@@ -146,7 +154,7 @@
                     type="select"
                     class="mb-3"
                     name="gender"
-                    rules="required"
+
                     :value="old('gender') ?? $customer->gender"
                     :aria-label="trans('shop::app.customers.account.profile.edit.select-gender')"
                     :label="trans('shop::app.customers.account.profile.edit.gender')"

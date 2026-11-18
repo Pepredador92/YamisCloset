@@ -50,22 +50,24 @@
                             <!-- Email -->
                             <x-shop::form.control-group>
                                 <x-shop::form.control-group.label class="required">
-                                    @lang('shop::app.checkout.login.email')
+                                    @lang('storefront.phone')
                                 </x-shop::form.control-group.label>
 
                                 <x-shop::form.control-group.control
-                                    type="email"
+                                    type="tel"
                                     class="px-6 py-4"
-                                    name="email"
-                                    rules="required|email"
-                                    :label="trans('shop::app.checkout.login.email')"
-                                    placeholder="email@example.com"
-                                    :aria-label="trans('shop::app.checkout.login.email')"
+                                    name="phone"
+                                    rules="required"
+                                    :label="trans('storefront.phone')"
+                                    placeholder="+52 492 123 4567" autocomplete="username" inputmode="tel"
+                                    :aria-label="trans('storefront.phone')"
                                     aria-required="true"
                                 />
 
-                                <x-shop::form.control-group.error control-name="email" />
+                                <x-shop::form.control-group.error control-name="phone" />
                             </x-shop::form.control-group>
+
+                            <p class="mb-4 text-xs text-zinc-500">@lang('storefront.phone-help')</p>
 
                             <!-- Password -->
                             <x-shop::form.control-group class="mb-0!">
@@ -78,7 +80,7 @@
                                     class="px-6 py-4"
                                     id="password"
                                     name="password"
-                                    rules="required|min:6"
+                                    rules="required"
                                     :label="trans('shop::app.checkout.login.password')"
                                     :placeholder="trans('shop::app.checkout.login.password')"
                                     :aria-label="trans('shop::app.checkout.login.password')"
@@ -108,6 +110,10 @@
                                     ::disabled="isStoring"
                                 />
                             </div>
+                            @include('social_login::shop.customers.session.social-links')
+                            <a href="{{ route('shop.customers.register.index') }}" class="mt-4 inline-block text-sm underline">
+                                @lang('shop::app.customers.login-form.create-your-account')
+                            </a>
                         </x-slot>
                     </x-shop::modal>
 

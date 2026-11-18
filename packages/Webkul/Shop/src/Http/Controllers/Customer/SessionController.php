@@ -44,7 +44,7 @@ class SessionController extends Controller
      */
     public function username(): string
     {
-        return 'email';
+        return 'phone';
     }
 
     /**
@@ -54,7 +54,7 @@ class SessionController extends Controller
      */
     public function store(LoginRequest $loginRequest)
     {
-        $credentials = $loginRequest->only(['email', 'password']);
+        $credentials = $loginRequest->only(['phone', 'password']);
 
         $credentials['channel_id'] = core()->getCurrentChannel()->id;
 
@@ -72,6 +72,8 @@ class SessionController extends Controller
             return redirect()->back();
         }
 
+        session()->regenerate();
+
         $this->clearLoginAttempts($loginRequest);
 
         if (! auth()->guard('customer')->user()->status) {
@@ -82,12 +84,12 @@ class SessionController extends Controller
             return redirect()->back();
         }
 
-        if (! auth()->guard('customer')->user()->is_verified) {
+        if (auth()->guard('customer')->user()->email && ! auth()->guard('customer')->user()->is_verified) {
             session()->flash('info', trans('shop::app.customers.login-form.verify-first'));
 
             Cookie::queue(Cookie::make('enable-resend', 'true', 1));
 
-            Cookie::queue(Cookie::make('email-for-resend', $loginRequest->input('email'), 1));
+            Cookie::queue(Cookie::make('email-for-resend', auth()->guard('customer')->user()->email, 1));
 
             auth()->guard('customer')->logout();
 
@@ -97,7 +99,7 @@ class SessionController extends Controller
         /**
          * Event passed to prepare cart after login.
          */
-        Event::dispatch('customer.after.login', auth()->guard()->user());
+        Event::dispatch('customer.after.login', auth()->guard('customer')->user());
 
         if ($intended = session()->pull('shop.url.intended')) {
             return redirect()->to($intended);
